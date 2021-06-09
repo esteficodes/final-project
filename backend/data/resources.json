@@ -6,7 +6,6 @@
     "online": false,
     "description":" Hack your future supports refugees, asylum seekers and disadvantaged groups with limited access to further education and the Danish labour market in acquiring the necessary skills to become web developers and entering a very-in-demand field.", 
     "url": "https://www.hackyourfuture.dk/"
-
   },
   {
     "name": "Name: Rails Girls Copenhagen",
@@ -141,7 +140,7 @@
     "free": true,
     "online": true,
     "description": "Aims at being a source of inspiration and increasing knowledge about IT related topics. Arranges yearly conferences, inspirational talks and a possibility for women interested in IT to network and meet. ",
-    "url": "https://witech.nu/"
+    "URL": "https://witech.nu/"
   },
   {
     "name": "Kodtjejer",
@@ -150,7 +149,7 @@
     "free": true,
     "online": true,
     "description": "Facebook group for all girls and women who are interested in coding. This is a place for everyone, whether you’ve just started writing your first lines of code, or if you are a professional developer who has been coding for years. ",
-    "url": "https://www.facebook.com/groups/475918626130338/"
+    "URL": "https://www.facebook.com/groups/475918626130338/"
   },
   {
     "name": "Techella",
@@ -159,7 +158,7 @@
     "free": true,
     "online": true,
     "description": "A network aimed to increase the amount of women in the tech field. Has several local networks in Southern Sweden, which organizes regular workshops and events. Techella has several goals. One of them is to make more women choose tech related education. Another is to make sure females who are already working in tech, decides to stay there. ",
-    "url": " http://techella.se/"
+    "URL": " http://techella.se/"
   },
   {
     "name": "WTEQ",
@@ -168,7 +167,7 @@
     "free": false,
     "online": false,
     "description": "Network for women in tech, IT and digital businesses. Organizes events where tech women get a chance to network. The events also tend to be an excellent arena for meetings between skilled network members and companies that would like to hire new talented employees. ", 
-    "url": "https://www.dmatch.se/sv/wteq-sv/" 
+    "URL": "https://www.dmatch.se/sv/wteq-sv/" 
   },
   {
     "name": "FemTech Sweden",
@@ -177,7 +176,7 @@
     "free": true,
     "online": true,
     "description": "Community-based network for women and non-binaries in technology and entrepreneurship. The goal is to highlight the professional achievements of these individuals no matter which stage they are at in their careers.",
-    "url": "https://www.femtechse.com/"
+    "URL": "https://www.femtechse.com/"
   },
   {
     "name": "Smart Coding",
@@ -186,7 +185,7 @@
     "free": true,
     "online": false,
     "description": "Smart Coding offers free education programs onsite in Stockholm, where females interested in coding will study for 3-4 months to become junior full-stack web developer or beginner software developer. The goal is to support gender equality in the programming field. A career program is also offered, to help the students find a job and get hired after a completed education.",
-    "url": "http://www.smartcoding.se/" 
+    "URL": "http://www.smartcoding.se/" 
   },
   {
     "name": "Embla",
@@ -195,7 +194,7 @@
     "free": true,
     "online": false,
     "description": "Embla is a female programming network created by Sigma Technology, with the goal to inspire more women to pursue a programming career. Anyone can become a member, and participate in workshops and events. The membership is free of charge and everyone interested in embedded programming or embedded software can apply. ",
-    "url": "https://sigmatechnology.se/embla/"
+    "URL": "https://sigmatechnology.se/embla/"
   },
   {
     "name": "ImagiLabs",
@@ -204,7 +203,7 @@
     "free": false,
     "online": true,
     "description": "The first coding social network for girls where all members can also learn how to code in a fun way, using an app. No previous experience from programming is needed, and the programming language that will be taught is Python, a well known and frequently used language. The target group is girls between the ages of 9 and 15. ",
-    "url": "https://imagilabs.com/"
+    "URL": "https://imagilabs.com/"
   },
   {
     "name": "Pyladies Stockholm",
@@ -213,7 +212,7 @@
     "free": true,
     "online": true,
     "description": "This is an international mentorship group with focus on helping more women become active participants and leaders in the Python open-source community. The mission is to promote, educate and advance a diverse Python community through outreach, education, conferences, events and social gatherings. ", 
-    "url": " https://www.meetup.com/PyLadiesStockholm/"
+    "URL": " https://www.meetup.com/PyLadiesStockholm/"
   },
   {
     "name": "The Code Pub Stockholm",
@@ -222,7 +221,7 @@
     "free": true,
     "online": false,
     "description": "The Code Hub is a meetup for women and non-binary who want to learn more about IT. Open for beginners as well as professionals. The goal is to create a platform where one can be inspired and inspire others while becoming a better developer.", 
-    "url": " https://www.meetup.com/The-Code-Pub-Stockholm/"
+    "URL": " https://www.meetup.com/The-Code-Pub-Stockholm/"
   },
   {
     "name": "Duchess Sweden",
@@ -231,7 +230,7 @@
     "free": true,
     "online": false, 
     "description": "The Swedish chapter of a global network for women interested in Java programming. Meetups are arranged, mainly in Stockholm, where the members meet, talk about Java programming, have some delicious food or a couple of drinks together. Anyone can participate, as long as they live close enough to Stockholm to be able to attend the meetups. Only women are accepted as members. ", 
-    "url": "https://www.meetup.com/Duchess-Sweden/"
+    "URL": "https://www.meetup.com/Duchess-Sweden/"
   },
   {
     "name": "Mimmit koodaa",
@@ -240,16 +239,16 @@
     "free": true,
     "online": true,
     "description": "The purpose of the Mimmit koodaa -program (women code -program) is to increase equality in the Finnish software industry by breaking the stereotype that coding is only for men.",
-    "url": "https://mimmitkoodaa.ohjelmistoebusiness.fi"
+    "URL": "https://mimmitkoodaa.ohjelmistoebusiness.fi"
   },
   {
     "name": "Twig the code",
     "language": "Finnish",
-    "type": ,
-    "free": 
-    "online": 
+    "type": "workshops",
+    "free": true,
+    "online": true,
     "description": "Twig the Code aims to attract more women to the software industry and lower the threshold for women to start software studies. Through us, all women interested in the field can start coding studies on a hobby basis.",
-    "url": "https://twigthecode.com"
+    "URL": "https://twigthecode.com"
   },
   {
     "name": "Level up koodarit",
@@ -258,7 +257,7 @@
     "free": true,
     "online": true,
     "description": "Our goal is to support learning to code, organising events and sharing materials.",
-    "url": "https://oslevelupkoodarit.github.io"
+    "URL": "https://oslevelupkoodarit.github.io"
   },
   {
     "name": "Django girls",
@@ -267,7 +266,7 @@
     "free": true,
     "online": false,
     "description": "If you are a female and you want to learn how to make websites, we have good news for you! We are holding a one-day workshop for beginners!",
-    "url": " https://djangogirls.org/oslo1/"
+    "URL": " https://djangogirls.org/oslo1/"
   },
   {
     "name": "Meet and code",
@@ -276,7 +275,7 @@
     "free": true,
     "online": true,
     "description": "A web with code resources for women",
-    "url": "https://meet-and-code.org/web/dk/dk/inspiration-library-show/214"
+    "URL": "https://meet-and-code.org/web/dk/dk/inspiration-library-show/214"
   },
   {
     "name": "ODA Nettverk",
@@ -285,7 +284,7 @@
     "free": false,
     "online": false,
     "description": "Network with more than 10 000 members all over Norway that aims at empowering women in tech and improving the diversity. Arranges yearly conferences, regular workshops, mentorship programs and other events. ",
-    "url": "https://odanettverk.no/" 
+    "URL": "https://odanettverk.no/" 
   },
   {
     "name": "Tech Women Norway",
@@ -294,7 +293,7 @@
     "free": true,
     "online": false,
     "description": "A yearly event to celebrate Norwegian women and gender queer people that are individual contributors in tech. Nominates role models in tech in advance of each meetup, and awards are given on the meetup itself. ",
-    "url": " https://techwomen.no/"
+    "URL": " https://techwomen.no/"
   },
   {
     "name": "Women in Technology Oslo",
@@ -303,7 +302,7 @@
     "free": true,
     "online": false,
     "description": "Non-profit organization with a mission to motivate women to learn more about technology and to make more women involved in tech. Has an active Clubhouse channel with bi-weekly talks. ",
-    "url": "https://www.facebook.com/WomenITech/"
+    "URL": "https://www.facebook.com/WomenITech/"
   },
   {
     "name": "Women in Games Norway",
@@ -312,23 +311,23 @@
     "free": true,
     "online": false,
     "description": "Non-profit organization for gender minorities in the gaming business of Norway. The main objective is to educate, inspire and empower those who currently work in games, those seeking to step into the industry and those working in gaming education and research. Organizes events for networking and inspiration.",
-    "url": "https://womeningamesnorway.com/" 
+    "URL": "https://womeningamesnorway.com/" 
   },
   {
     "name": "TENK",
     "language": "Norwegian",
     "type": "network",
-    "free": 
-    "online": 
+    "free": true,
+    "online": false,
     "description": " A network that aims to inspire women and make more girls and females interested in the technology field. Arranges code events, tech related talks, inspirational meetings and also camps for young girls. A virtual meeting room where girls and women can exchange experiences, inspire each other and grow the tech related network. ",
-    "url": "https://www.tenk-norge.com/"
+    "URL": "https://www.tenk-norge.com/"
   },
  {
     "Name": "Jenteprosjektet Ada",
     "Language": "Norwegian",
     "Type": "Project for students",
-    "Free": ,
-    "Online": ,
+    "Free": true,
+    "Online": false,
     "Description": "Project for females where the focus is to motivate and educate women and later help them start a career within tech. Offers several activities, such as meetups, coding weeks, career network and many more events.",
     "URL": "https://www.ntnu.no/jenter/ada"
  },
@@ -336,8 +335,8 @@
     "Name": "Kvinner i Teknikk och Håndverk",
     "Language": "Norwegian",
     "Type": "Network",
-    "Free": ,
-    "Online": ,
+    "Free": true,
+    "Online": false,
     "Description": "Network for women working in fields where the gender equality is low, such as tech and handicraft. The goal is to inspire women to choose one of these fields, where men are still in the vast majority. The network travels around Norway and gives inspirational talks in the schools, and arranges various events to inspire and motivate.",
     "URL": "https://www.kvinnerith.no/"
  }, 
@@ -345,8 +344,8 @@
     "Name": "Girls can do IT Oslo",
     "Language": "English", 
     "Type": "Meetup",
-    "Free": ,
-    "Online": ,
+    "Free": true,
+    "Online": false,
     "Description": "Girls Can Do IT is a group connecting women willing to improve themselves in new technologies. The purpose of the group is to encourage women that IT is not only for boys, and that we can be successful in this field as well as others.", 
     "URL": "https://www.meetup.com/Girls-can-do-IT-Oslo/"
 }, 
@@ -354,8 +353,8 @@
     "Name": "Rails Girls",
     "Language": "English",
     "Type": "website",
-    "Free": ,
-    "Online": ,
+    "Free": true,
+    "Online": false,
     "description": "Our aim is to give tools and a community for women to understand technology and to build their ideas. We do this by providing a great experience on building things and by making technology more approachable.",
     "URL": "http://railsgirls.com/"
 },
@@ -365,7 +364,7 @@
     "Type": "online school",
     "Free": false,
     "Online": true,
-    "description": ,
+    "description": "An online resource for women looking to learn code and feel comfortable doing it. A way to empower women by giving them the tools necessary to build their own website by learning web development. ",
     "URL": "https://skillcrush.com/"
 },
 {
@@ -384,7 +383,7 @@
     "Free": false,
     "Online": false,
     "Description": "Immersive Coding Education for Women +. No upfront Tuition cost",
-    "url": "https://www.gracehopper.com/"
+    "URL": "https://www.gracehopper.com/"
 },
 {   
     "Name": "23 code street",
@@ -399,8 +398,8 @@
     "Name": "Codebar.io",
     "language": "English",
     "Type": "community",
-    "Free": ,
-    "Online": ,
+    "Free": true,
+    "Online": true,
     "description": "Our goal is to enable minority group members to learn programming in a safe and collaborative environment and expand their career opportunities. To achieve this we run free regular workshops, regular one-off events and try to create opportunities for our students making technology and coding more accessible.",
     "URL": "https://codebar.io/"
 },
@@ -417,10 +416,10 @@
     "Name": "Lesbians who tech",
     "language": "English",
     "type": "summit",
-    "Free": ,
-    "Online": ,
+    "Free": false,
+    "Online": true,
     "description": "Lesbians Who Tech is a global community of 70,000+ LGBTQ women, trans and non-binary folks, queer women of color, and allies in tech. Their coding scholarship makes it possible for LGBTQ women and non-binary techies to start a career in tech. They offer scholarships for some of the biggest coding bootcamps.",
-    "URL": "lesbianswhotech.org"
+    "URL": "https://lesbianswhotech.org/" 
 },
 {
     "Name": "Girls in Tech",
@@ -429,7 +428,7 @@
     "Free": true,
     "Online": false,
     "description": "Join Girls in Tech to discover inspiring programs and a diverse community designed to help you enter into, and excel, in tech.",
-    "url": "https://girlsintech.org/" 
+    "URL": "https://girlsintech.org/" 
 },
 {
     "Name": "Hear me code",
@@ -442,10 +441,10 @@
 },
 { 
     "Name": "Girls Code Fun",
-    "Language": "English",
+    "Language": "Polish",
     "Type": "Organization",
-    "Free": ,
-    "Online": ,
+    "Free": true,
+    "Online": false,
     "Description": "Non-profit organization that aims to motivate girls and women to gain technological skills and education. Offer scholarships for girls in ages 8-16 in Warsaw, Poland. Also arranges workshops for women interested in learning how to code.",
     "URL": "https://girlscodefun.pl/en/"
 },
@@ -453,8 +452,8 @@
     "Name": "Code First Girls",
     "Language": "English",
     "Type": "Coding courses",
-    "Free": ,
-    "Online": ,
+    "Free": true,
+    "Online": true,
     "Description": "The largest provider of free coding courses for women in the UK. Offer free courses on beginner level, but also a nanodegree program.",
     "URL": "https://codefirstgirls.org.uk/"
 },
@@ -534,7 +533,7 @@
 },
 {
     "Name": "Wild Code School",
-    "language": ,
+    "language": "English",
     "type": "Bootcamp",
     "Free": false,
     "Online": true,
@@ -618,7 +617,7 @@
 },
 {  
     
-    "Name": "Women who code Podcasts",
+    "Name": "Women who code- Podcasts",
     "language": "English",
     "type": "podcasts",
     "free": true,

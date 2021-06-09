@@ -4,26 +4,20 @@ import mongoose from 'mongoose'
 import crypto from 'crypto'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
-import listEndpoints from 'express-list-endpoints' 
+import listEndpoints from 'express-list-endpoints'
+import resources from './data/resources.json'
 
 dotenv.config()
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/finalProject"
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
-mongoose.set('useCreateIndex', true); //added due to deprecation error 26868
 mongoose.Promise = Promise
-
 
 const port = process.env.PORT || 9000
 const app = express()
 
 const resourceSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "The message field is mandatory"],
-    minlength: 2,
-    maxlength: 140,
-  },
+  name: String,
   language: String,
   type: String,
   free: Boolean,
@@ -34,8 +28,14 @@ const resourceSchema = new mongoose.Schema({
 
 const Resource = mongoose.model("Resource", resourceSchema);
 
-app.use(cors());
-app.use(express.json());
+const seedDB = () => {
+  resources.forEach(item => {
+    const newResource = new Resource(item)
+    newResource.save()
+  })
+}
+
+seedDB()
 
 app.get("/resources", async (req, res) => {
   const allResources = await Resource.find()
@@ -47,8 +47,8 @@ app.get("/resources", async (req, res) => {
 
 app.post("/resources", async (req, res) => {
   try {
-    const newResource = await new Resource(req.body).save();
-    res.json(newResource);
+    const Resource = await new Resource(req.body).save();
+    res.json(Resource);
   } catch (error) {
     if (error.code === 11000) {
       res

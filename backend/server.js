@@ -9,7 +9,7 @@ import resources from './data/resources.json'
 
 dotenv.config()
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/final-project"
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/finalProject"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = Promise
 
@@ -36,7 +36,7 @@ const seedDB = () => {
 }
 
 seedDB()
-
+//GET ALL RESOURCES
 app.get("/resources", async (req, res) => {
   const allResources = await Resource.find()
     .sort({ name: 1 })
@@ -45,6 +45,7 @@ app.get("/resources", async (req, res) => {
   res.json(allResources);
 });
 
+//POST A RESOURCE
 app.post("/resources", async (req, res) => {
   try {
     const Resource = await new Resource(req.body).save();
@@ -58,6 +59,52 @@ app.post("/resources", async (req, res) => {
     res.status(400).json(error);
   }
 });
+
+//GET BY TYPE OF RESOURCE
+app.get("/resources/:name", async (req, res) => {
+  const { name } = req.params
+
+  try {
+    const singleResource = await Resource.findOne({
+      name: { $regex: "\\b" + name + "\\b", $options: "i" },
+    })
+    res.json(singleResource)
+  } catch (error) {
+    res.status(400).json({ error: "Oops! Something went wrong", details: error })
+  }
+})
+
+//GET BY TYPE OF RESOURCE
+app.get("/resources/:type", async (req, res) => {
+  const { type } = req.params
+
+  try {
+    const resourcesType = await Resource.find({
+      type: { $regex: "\\b" + type + "\\b", $options: "i" }
+    })
+    res.json(resourcesType)
+  } catch (error) {
+    res.status(400).json({ error: "Oops! Something went wrong", details: error })
+  }
+})
+
+//GET BY LANGUAGE
+app.get("/resources/:language", async (req, res) => {
+  const { language } = req.params
+
+  try {
+    const resourcesLanguage = await Resource.find({
+      language: { $regex: "\\b" + language + "\\b", $options: "i" },
+    })
+    res.json(resourcesLanguage)
+  } catch (error) {
+    res.status(400).json({ error: "Oops! Something went wrong", details: error })
+  }
+})
+
+//GET BY IS IT FREE OF CHARGE
+
+//GET BY IS IT ONLINE
 
 
 // Add middlewares to enable cors and json body parsing

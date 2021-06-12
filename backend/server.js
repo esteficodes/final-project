@@ -102,9 +102,25 @@ app.get("/resources/:language", async (req, res) => {
   }
 })
 
-//GET BY IS IT FREE OF CHARGE
+//GET BY IS IT FREE OF CHARGE /GET BY IS IT ONLINE 
+app.get("/resources/", async (res, req) => {
+  const { name, free, online } = req.query
 
-//GET BY IS IT ONLINE
+  if (name) {
+    const resources = await Resource.find({
+      name: {
+        $regex: new RegExp(name, "i")}
+    })
+    res.json(resources)
+  }
+
+  if(online) {
+    const resources = await Resource.find({
+      online:true
+    })
+    res.json(resources)
+  }
+})
 
 
 // Add middlewares to enable cors and json body parsing

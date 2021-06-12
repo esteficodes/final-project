@@ -5,7 +5,7 @@ import crypto from 'crypto'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
 import listEndpoints from 'express-list-endpoints'
-import resources from './data/resources.json'
+
 
 dotenv.config()
 
@@ -28,14 +28,13 @@ const resourceSchema = new mongoose.Schema({
 
 const Resource = mongoose.model("Resource", resourceSchema);
 
-const seedDB = () => {
-  resources.forEach(item => {
-    const newResource = new Resource(item)
-    newResource.save()
-  })
-}
 
-seedDB()
+//ENDPOINT TO DISPLAY ALL ENDPOINTS
+
+app.get("/", (req, res) => {
+  res.send(listEndpoints(app));
+});
+
 //GET ALL RESOURCES
 app.get("/resources", async (req, res) => {
   const allResources = await Resource.find()
@@ -60,7 +59,7 @@ app.post("/resources", async (req, res) => {
   }
 });
 
-//GET BY TYPE OF RESOURCE
+//GET BY NAME OF RESOURCE
 app.get("/resources/:name", async (req, res) => {
   const { name } = req.params
 
@@ -75,7 +74,7 @@ app.get("/resources/:name", async (req, res) => {
 })
 
 //GET BY TYPE OF RESOURCE
-app.get("/resources/:type", async (req, res) => {
+app.get("/resources/type/:type", async (req, res) => {
   const { type } = req.params
 
   try {
@@ -89,7 +88,7 @@ app.get("/resources/:type", async (req, res) => {
 })
 
 //GET BY LANGUAGE
-app.get("/resources/:language", async (req, res) => {
+app.get("/resources/language/:language", async (req, res) => {
   const { language } = req.params
 
   try {

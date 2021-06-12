@@ -7,6 +7,7 @@
   body {
     margin: 0;
     font-family: 'Noto', monospace;
+    font-size: large;
     background: pink;
     display: flex;
     justify-content: center;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import ResourceCard from "components/ResourceCard";
 
@@ -44,7 +45,7 @@ const Infobox = styled.div`
 `;
 
 const Infotext = styled.p`
-  margin: 0 20px;
+  margin: 15px 20px;
   text-align: center;
   font-size: 20px;
 `;
@@ -84,6 +85,9 @@ const ResourcesList = () => {
 
       <Infotext>
         WIT Library - Resources for all female tech stars like you
+      </Infotext>
+      <Infotext>
+      <Link to="Meetups">Meetups</Link> | <Link to="Organizations">Organizations</Link> | <Link to="Communities">Communities</Link> | <Link to="Events">Events</Link> | <Link to="Schools">Schools</Link> | <Link to="Websites">Websites</Link>
       </Infotext>
 
       <Cardbox>

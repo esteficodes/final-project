@@ -28,6 +28,10 @@ const resourceSchema = new mongoose.Schema({
 
 const Resource = mongoose.model("Resource", resourceSchema);
 
+// Add middlewares to enable cors and json body parsing
+app.use(cors())
+app.use(express.json())
+
 
 //ENDPOINT TO DISPLAY ALL ENDPOINTS
 
@@ -39,7 +43,6 @@ app.get("/", (req, res) => {
 app.get("/resources", async (req, res) => {
   const allResources = await Resource.find()
     .sort({ name: 1 })
-    .limit(20)
     .exec();
   res.json(allResources);
 });
@@ -122,9 +125,6 @@ app.get("/resources/", async (res, req) => {
 })
 
 
-// Add middlewares to enable cors and json body parsing
-app.use(cors())
-app.use(express.json())
 
 // Start the server
 app.listen(port, () => {

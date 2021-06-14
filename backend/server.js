@@ -43,6 +43,8 @@ app.get("/resources", async (req, res) => {
   res.json(allResources);
 });
 
+
+
 //POST A RESOURCE
 app.post("/resources", async (req, res) => {
   try {

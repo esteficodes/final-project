@@ -81,9 +81,9 @@ export const Events = () => {
 
   return (
     <>
-      <Link to="/" className="button-back">
-        <span className="arrow-box">&#x2B05; </span>
-        <span className="back-link-text"> BACK</span>
+      <Link to="/">
+        <span>&#x2B05; </span>
+        <span> BACK</span>
       </Link>
       <Infobox />
         <Infotext>

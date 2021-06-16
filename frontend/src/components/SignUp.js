@@ -195,7 +195,7 @@ const SignUp = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                   {errors && <p>Oops, looks like something went wrong!</p>}
+                   {errors && <p>Oops, looks like something went wrong! Please, try again</p>}
                 <Button
                   type="submit"
                   onClick={() => setMode('signup')}

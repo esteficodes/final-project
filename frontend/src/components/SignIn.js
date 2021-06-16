@@ -7,7 +7,7 @@ import women from '../assets/women.png'
 
 
 import { sign } from '../reducers/user'
-import { name } from 'file-loader'
+
 
 const SigninWrapper = styled.div`
   height: 100%;
@@ -164,7 +164,7 @@ const SignIn = () => {
                 <UserInput
                   id="usernameInput"
                   type="text"
-                  value={name} 
+                  value={username} 
                   onChange={(e) => setUsername(e.target.value)}
                   minLength="3"
                   maxLength="15"

@@ -6,18 +6,31 @@ import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import listEndpoints from "express-list-endpoints";
 
-
-
 dotenv.config();
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/finalProject";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set('useCreateIndex', true);
 mongoose.Promise = Promise;
 
-const port = process.env.PORT || 9000;
-const app = express();
+//USER MODEL
+const User = mongoose.model('User', {
+  username: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  accessToken: {
+    type: String,
+    default: () => crypto.randomBytes(128).toString('hex')
+  }
+})
 
-
+//RESOURCES MODEL
 const resourceSchema = new mongoose.Schema({
   name: String,
   language: String,
@@ -30,12 +43,86 @@ const resourceSchema = new mongoose.Schema({
 
 const Resource = mongoose.model("Resource", resourceSchema);
 
-// Add middlewares to enable cors and json body parsing
+const authenticateUser = async (req, res, next) => {
+  const accessToken = req.header('Authorization')
+
+  try {
+    const user = await User.findOne({ accessToken })
+    if (user) {
+      next()
+    } else {
+      res.status(401).json({ success: false, message: 'not authorized '})
+    }
+  } catch (error) {
+    res.status(400).json({ success: false, message: 'invalid request', error })
+  }
+}
+
+const port = process.env.PORT || 9000;
+const app = express();
+
+//MIDDLEWARES
 app.use(cors());
 app.use(express.json());
 
-//ENDPOINT TO DISPLAY ALL ENDPOINTS
+//STARTS DEFINING ROUTES
+app.get('/', (req, res) => {
+  res.send(WELCOME)
+})
 
+//SIGNUP
+app.post('/signup', async (req, res) => {
+  const { username, password } = req.body
+
+  try {
+    const salt = bcrypt.genSaltSync()
+
+    const newUser = await new User({
+      username,
+      password: bcrypt.hashSync(password, salt)
+    }).save()
+
+    res.json({
+      success: true,
+      userID: newUser._id,
+      username: newUser.username,
+      accessToken: newUser.accessToken
+    })
+  } catch (error) {
+    res.status(400).json({ success: false, message: 'Invalid request', error })
+  }
+})
+
+//AUTHENTICATE USER
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body
+
+  try {
+    const user = await User.findOne({ username })
+
+    if (user && bcrypt.compareSync(password, user.password)) {
+      res.json({
+        success: true,
+        userID: user._id,
+        username: user.username,
+        accessToken: user.accessToken
+      })
+    } else {
+      res.status(401).json({ success: false, message: 'Not authorized' })
+    }
+  } catch (error) {
+    res.status(400).json({ success: false, message: 'Invalid request', error })
+  }
+})
+
+//HOME ENDPOINT - LOGGED-IN USERS
+app.get('home', authenticateUser)
+app.get('/home', async (req, res) => {
+  const home = await Resource.find()
+  res.json(home)
+})
+
+//ENDPOINT TO DISPLAY ALL ENDPOINTS
 app.get("/", (req, res) => {
   res.send(listEndpoints(app));
 });
@@ -45,8 +132,6 @@ app.get("/resources", async (req, res) => {
   const allResources = await Resource.find().sort({ name: 1 }).exec();
   res.json(allResources);
 });
-
-
 
 //POST A RESOURCE
 app.post("/resources", async (req, res) => {

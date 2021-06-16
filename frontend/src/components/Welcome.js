@@ -1,0 +1,48 @@
+import React, { useEffect} from 'react'
+import { useSelector, useDispatch, batch } from 'react-redux'
+import { useHistory, Link } from 'react-router-dom'
+
+import { API_URL } from 'reusable/urls'
+
+import resources from '../reducers/resources'
+
+const Welcome = () => {
+    const accessToken = useSelector(store => store.user.accessToken)
+
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+    useEffect(() => {
+        if (!accessToken) {
+            history.push('/signup')
+        }
+    }, [accesToken, history])
+
+    useEffect(() => {
+        const options = {
+            method: 'GET',
+            headers: {
+              Authorization: 'accessToken'
+            }
+        }
+      
+        fetch(API_URL('resources'), options)
+          .then(res => res.json())
+          .then(data => {
+            if (data.success) {
+                batch(()=> {
+                  dispatch(resources.actions.setResources(data.resources))
+                  dispatch(resources.actions.setErrors(null))
+                })
+            } else {
+                dispatch(resources.actions.setErrors(data))
+            }
+          })
+    }, [accessToken, dispatch])
+
+    return (
+      <div>welcome</div> //in this site we welcome users and diplay two main options > see the available resources and see what's hot (info from external apis)
+    )
+}
+
+export default Welcome

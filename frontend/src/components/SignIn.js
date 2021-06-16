@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, batch, useSelector } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import women from '../assets/women.png'
 
+import { API_URL } from 'reusable/urls'
 
 import { sign } from '../reducers/user'
 
@@ -136,21 +137,53 @@ const SigninImage = styled.img`
 const SignIn = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [loggedIn, setLoggedIn] = useState(false)
     const [mode, setMode] = useState(null)
 
     const accessToken= useSelector(store => store.user.accessToken)
+    //const errors = useSelector(store => store.user.errors)
     const dispatch = useDispatch()
     const history = useHistory()
 
     useEffect(() => {
-        if (accessToken) {
-            history.push('/')
+        if (accessToken && loggedIn) {
+            history.push('/main')
         }   
-    }, [accessToken, history])
+    }, [accessToken, history, loggedIn])
 
     const onFormSubmit = (e) => {
         e.preventDefault()
         dispatch(sign(username, password, mode))
+
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify({ username, password })
+        }
+
+        fetch(API_URL('signin'), options)
+          .then(res => res.json())
+          .then(data => {
+            if (data.success) {
+              batch (() => {
+                dispatch(sign.actions.setUsername(data.username))
+                dispatch(sign.actions.setPassword(data.password))
+                dispatch(sign.actions.setAccessToken(data.accessToken))
+                dispatch(sign.actions.setErrors(null))
+
+                localStorage.setItem('sign', JSON.stringify({
+                  username:data.username,
+                  accessToken:data.accessToken
+                }))
+              }) 
+              setLoggedIn(true)
+            } else {
+              dispatch(sign.actions.seterrors(data))
+            }
+          })
+          .catch()
     }
 
     return (

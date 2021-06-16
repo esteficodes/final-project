@@ -10,7 +10,6 @@ import background from '../assets/background.png'
 import { API_URL } from '../reusable/urls'
 
 
-
 const SignupWrapper = styled.div`
   height: 100%;
   min-width: 100%
@@ -169,6 +168,8 @@ const SignUp = () => {
                   })
               }  else {
                    dispatch(user.actions.setErrors(data))
+                   setUsername('')
+                   setPassword('')
               }
           })
           .catch()

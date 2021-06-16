@@ -6,6 +6,8 @@ import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 import listEndpoints from "express-list-endpoints";
 
+
+
 dotenv.config();
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/finalProject";
@@ -14,6 +16,7 @@ mongoose.Promise = Promise;
 
 const port = process.env.PORT || 9000;
 const app = express();
+
 
 const resourceSchema = new mongoose.Schema({
   name: String,

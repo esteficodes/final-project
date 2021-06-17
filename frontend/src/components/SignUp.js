@@ -136,7 +136,7 @@ const SignUp = () => {
     const [password, setPassword] = useState('')
     const [mode, setMode] = useState(null)
 
-    const accessToken = useSelector(store => store.user.accessToken)
+    const accessToken= useSelector(store => store.user.accessToken)
     const dispatch = useDispatch()
     const history = useHistory()
     const errors= useSelector(store => store.user.errors)
@@ -168,8 +168,7 @@ const SignUp = () => {
                   })
               }  else {
                    dispatch(user.actions.setErrors(data))
-                   setUsername('')
-                   setPassword('')
+                   
               }
           })
           .catch()

@@ -14,9 +14,9 @@ const Welcome = () => {
 
     useEffect(() => {
         if (!accessToken) {
-            history.push('/signup')
+            history.push('/signin')
         }
-    }, [accesToken, history])
+    }, [accessToken, history])
 
     useEffect(() => {
         const options = {
@@ -41,7 +41,9 @@ const Welcome = () => {
     }, [accessToken, dispatch])
 
     return (
-      <div>welcome</div> //in this site we welcome users and diplay two main options > see the available resources and see what's hot (info from external apis)
+      <div>welcome
+        <h3 className="welcome-title">You can enter the memberarea <Link to="/signin">here</Link></h3>
+      </div> //in this site we welcome users and diplay two main options > see the available resources and see what's hot (info from external apis)
     )
 }
 

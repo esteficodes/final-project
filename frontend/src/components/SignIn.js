@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, batch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import women from '../assets/women.png'
-
-import { API_URL } from 'reusable/urls'
 
 import { sign } from '../reducers/user'
 
@@ -137,7 +135,6 @@ const SigninImage = styled.img`
 const SignIn = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [loggedIn, setLoggedIn] = useState(false)
     const [mode, setMode] = useState(null)
 
     const accessToken= useSelector(store => store.user.accessToken)
@@ -146,45 +143,15 @@ const SignIn = () => {
     const history = useHistory()
 
     useEffect(() => {
-        if (accessToken && loggedIn) {
+        if (accessToken) {
             history.push('/main')
         }   
-    }, [accessToken, history, loggedIn])
+    }, [accessToken, history])
 
     const onFormSubmit = (e) => {
         e.preventDefault()
         dispatch(sign(username, password, mode))
-
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-type': 'application/json'
-          },
-          body: JSON.stringify({ username, password })
-        }
-
-        fetch(API_URL('signin'), options)
-          .then(res => res.json())
-          .then(data => {
-            if (data.success) {
-              batch (() => {
-                dispatch(sign.actions.setUsername(data.username))
-                dispatch(sign.actions.setPassword(data.password))
-                dispatch(sign.actions.setAccessToken(data.accessToken))
-                dispatch(sign.actions.setErrors(null))
-
-                localStorage.setItem('sign', JSON.stringify({
-                  username:data.username,
-                  accessToken:data.accessToken
-                }))
-              }) 
-              setLoggedIn(true)
-            } else {
-              dispatch(sign.actions.seterrors(data))
-            }
-          })
-          .catch()
-    }
+    }   
 
     return (
         <SigninWrapper>
@@ -216,7 +183,7 @@ const SignIn = () => {
             <Button type="submit" onClick={() => setMode('signin')}>SIGN IN</Button>
             </Form>
             <SigninImage src={women} alt="group of women" />
-             <Subtitle>Not a member? Join us <Link to="/signup"> here</Link></Subtitle>
+             <Subtitle>Not a member? Join us <Link to="/signup">here</Link></Subtitle>
            </SigninContainer>
         </SigninWrapper>
     )

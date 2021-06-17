@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { API_URL } from '../reusable/urls'
 
 import user from '../reducers/user'
-
+import resources from '../reducers/resources'
 
 const Main = () => {
     const accessToken = useSelector(store => store.user.accessToken)
@@ -41,11 +41,11 @@ const Main = () => {
             .then(data => {
                 if (data.success) {
                     batch(() => {
-                        dispatch(thoughts.actions.setThoughts(data.thoughts))
-                        dispatch(thoughts.actions.setErrors(null))
+                        dispatch(resources.actions.setResources(data.resources))
+                        dispatch(resources.actions.setErrors(null))
                     })
                 } else {
-                    dispatch(thoughts.actions.setErrors(data))
+                    dispatch(resources.actions.setErrors(data))
                 }
             })
     }, [accessToken, dispatch])

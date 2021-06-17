@@ -58,7 +58,7 @@ const authenticateUser = async (req, res, next) => {
   }
 }
 
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 8080;
 const app = express();
 
 //MIDDLEWARES
@@ -67,7 +67,7 @@ app.use(express.json());
 
 //STARTS DEFINING ROUTES
 app.get('/', (req, res) => {
-  res.send(WELCOME)
+  res.send(listEndpoints(app))
 })
 
 //SIGNUP
@@ -94,7 +94,7 @@ app.post('/signup', async (req, res) => {
 })
 
 //AUTHENTICATE USER
-app.post('/login', async (req, res) => {
+app.post('/signin', async (req, res) => {
   const { username, password } = req.body
 
   try {
@@ -115,11 +115,11 @@ app.post('/login', async (req, res) => {
   }
 })
 
-//HOME ENDPOINT - LOGGED-IN USERS
-app.get('home', authenticateUser)
-app.get('/home', async (req, res) => {
-  const home = await Resource.find()
-  res.json(home)
+//MAIN ENDPOINT - LOGGED-IN USERS
+app.get('main', authenticateUser)
+app.get('/main', async (req, res) => {
+  const main = await Resource.find()
+  res.json(main)
 })
 
 //ENDPOINT TO DISPLAY ALL ENDPOINTS

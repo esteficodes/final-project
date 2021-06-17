@@ -134,7 +134,6 @@ const Button = styled.button`
 const SignUp = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [mode, setMode] = useState(null)
 
     const accessToken= useSelector(store => store.user.accessToken)
     const dispatch = useDispatch()
@@ -157,7 +156,7 @@ const SignUp = () => {
             },
             body: JSON.stringify({ username, password})
         }
-        fetch(API_URL(mode), options)
+        fetch(API_URL('signup'), options)
           .then(res => res.json())
           .then(data => {
               if (data.success){
@@ -198,7 +197,6 @@ const SignUp = () => {
                    {errors && <p>Oops, looks like something went wrong! Please, try again</p>}
                 <Button
                   type="submit"
-                  onClick={() => setMode('signup')}
                 >
                   SIGN UP
                 </Button>

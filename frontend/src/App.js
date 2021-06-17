@@ -3,13 +3,13 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { Provider } from 'react-redux'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import  user  from './reducers/user'
+import  user  from './reducers/user';
 import resources from "reducers/resources";
 
-import SignIn from './components/SignIn'
-import SignUp from './components/SignUp'
-import Main from './components/Main'
-import Welcome from './components/Welcome'
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import Main from './components/Main';
+import Welcome from './components/Welcome';
 
 import ResourcesList from "components/ResourcesList";
 import { Meetups } from "pages/Meetups";
@@ -22,7 +22,7 @@ import { Websites } from "pages/Websites";
 
 const reducer = combineReducers({
    user: user.reducer,
-  resources: resources.reducer
+   resources: resources.reducer
  })
 const store = configureStore({ reducer })
 
@@ -34,6 +34,7 @@ export const App = () => {
           <Switch>
             <Route exact path="/" component={SignIn} />
             <Route path="/main" component={Main} />
+            <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/welcome" component={Welcome} />
 

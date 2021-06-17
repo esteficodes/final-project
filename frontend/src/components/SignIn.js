@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, batch, useSelector } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
+import { API_URL } from 'reusable/urls'
 import styled from 'styled-components'
+
 
 import women from '../assets/women.png'
 
-import { sign } from '../reducers/user'
+import user from '../reducers/user'
 
 
 const SigninWrapper = styled.div`
@@ -135,7 +137,8 @@ const SigninImage = styled.img`
 const SignIn = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [mode, setMode] = useState(null)
+    const errors= useSelector(store => store.user.errors)
+    const [loggedIn, setLoggedIn] = useState(false)
 
     const accessToken= useSelector(store => store.user.accessToken)
     //const errors = useSelector(store => store.user.errors)
@@ -143,15 +146,43 @@ const SignIn = () => {
     const history = useHistory()
 
     useEffect(() => {
-        if (accessToken) {
-            history.push('/main')
+        if (accessToken && loggedIn) {
+            history.push('/welcome')
         }   
-    }, [accessToken, history])
+    }, [accessToken, loggedIn, history])
 
     const onFormSubmit = (e) => {
         e.preventDefault()
-        dispatch(sign(username, password, mode))
-    }   
+          
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    }
+
+    fetch(API_URL('signin'), options)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          batch (() => {
+            dispatch(user.actions.setUsername(data.username))
+            dispatch(user.actions.setAccessToken(data.accessToken))
+            dispatch(user.actions.setErrors(null))
+
+            localStorage.setItem('user', JSON.stringify({
+              username:data.username,
+              accessToken: data.accessToken
+            }))
+          })
+        setLoggedIn(true)
+        } else {
+          dispatch(user.actions.setErrors(data))
+        }
+      })
+      .catch()
+    }
 
     return (
         <SigninWrapper>
@@ -176,11 +207,12 @@ const SignIn = () => {
                 id="passwordInput"
                 type="password"
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 minLength="5"
                 maxLength="50"
                 required />
-            <Button type="submit" onClick={() => setMode('signin')}>SIGN IN</Button>
+              {errors && <p>OOPS, it looks like you don't have an account (or maybe just different credentials?)</p>}
+            <Button type="submit">SIGN IN</Button>
             </Form>
             <SigninImage src={women} alt="group of women" />
              <Subtitle>Not a member? Join us <Link to="/signup">here</Link></Subtitle>

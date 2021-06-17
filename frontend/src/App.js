@@ -1,7 +1,14 @@
-import React from "react";
+import React,{ useState, useRef } from "react";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { Provider } from 'react-redux'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+ 
+import { useOnClickOutside } from './hooks';
+
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './global';
+import { theme } from './theme';
+import { Burger, Menu } from './components';
 
 import  user  from './reducers/user';
 import resources from "reducers/resources";
@@ -27,10 +34,20 @@ const reducer = combineReducers({
 const store = configureStore({ reducer })
 
 export const App = () => {
+  const [open, setOpen] = useState(false);
+  const node = useRef(); 
+  useOnClickOutside(node, () => setOpen(false));
   return (
     <div>
       <BrowserRouter>
+      <ThemeProvider theme={theme}>
         <Provider store={store}>
+       
+        <GlobalStyles />
+        <div ref={node}>
+          <Burger open={open} setOpen={setOpen} />
+          <Menu open={open} setOpen={setOpen} />
+        </div>
           <Switch>
             <Route exact path="/" component={SignIn} />
             <Route path="/main" component={Main} />
@@ -66,8 +83,11 @@ export const App = () => {
             <Websites />
             </Route>
           </Switch>
+          
         </Provider>
+        </ThemeProvider>
       </BrowserRouter>
     </div>
   );
 };
+

@@ -4,6 +4,7 @@ import { useHistory, Link } from 'react-router-dom'
 
 import { API_URL } from 'reusable/urls'
 
+import user from '../reducers/user'
 import resources from '../reducers/resources'
 
 const Welcome = () => {
@@ -11,6 +12,15 @@ const Welcome = () => {
 
     const dispatch = useDispatch()
     const history = useHistory()
+
+    const logout = () => {
+      batch(() => {
+          dispatch(user.actions.setUsername(null))
+          dispatch(user.actions.setAccessToken(null))
+
+          localStorage.removeItem('user')
+      })
+  }
 
     useEffect(() => {
         if (!accessToken) {
@@ -42,7 +52,8 @@ const Welcome = () => {
 
     return (
       <div>welcome
-        <h3 className="welcome-title">You can enter the memberarea <Link to="/signin">here</Link></h3>
+        <h3 className="welcome-title">You can enter the memberarea <Link to="/main">here</Link></h3>
+        <button onClick={logout}>Logout</button>
       </div> //in this site we welcome users and diplay two main options > see the available resources and see what's hot (info from external apis)
     )
 }

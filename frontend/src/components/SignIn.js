@@ -211,7 +211,7 @@ const SignIn = () => {
                 minLength="5"
                 maxLength="50"
                 required />
-              {errors && <p>OOPS, it looks like you don't have an account (or maybe just different credentials?)</p>}
+              {errors && <p>OOPS, looks like you don't have an account yet. You are welcome to create a new one!</p>}
             <Button type="submit">SIGN IN</Button>
             </Form>
             <SigninImage src={women} alt="group of women" />

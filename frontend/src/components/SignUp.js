@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 import user from '../reducers/user'
@@ -137,14 +136,7 @@ const SignUp = () => {
 
     const accessToken= useSelector(store => store.user.accessToken)
     const dispatch = useDispatch()
-    const history = useHistory()
     const errors= useSelector(store => store.user.errors)
-
-    useEffect(() => {
-        if (accessToken) {
-            history.push('/welcome')
-        }
-    }, [accessToken, history])
 
     const onFormSubmit = (e) => {
         e.preventDefault()
@@ -154,8 +146,9 @@ const SignUp = () => {
             headers:{
                'Content-type': 'application/json'
             },
-            body: JSON.stringify({ username, password})
+            body: JSON.stringify({ username, password })
         }
+
         fetch(API_URL('signup'), options)
           .then(res => res.json())
           .then(data => {
@@ -165,9 +158,11 @@ const SignUp = () => {
                       dispatch(user.actions.setAccessToken(data.accessToken))
                       dispatch(user.actions.setErrors(null))
                   })
+
               }  else {
                    dispatch(user.actions.setErrors(data))
-                   
+                   setUsername('')
+                   setPassword('')                  
               }
           })
           .catch()
@@ -176,12 +171,15 @@ const SignUp = () => {
     return (
         <SignupWrapper>
             <SignupContainer>
-              <Title>It's great that you are joining!</Title>
+              {!accessToken
+                ?
                 <Form onSubmit={onFormSubmit}>
+                  <Title>It's great that you are joining!</Title>
                   <InputLabel>
                     username
                   </InputLabel>
                   <UserInput
+                    required
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -190,6 +188,7 @@ const SignUp = () => {
                    password
                   </InputLabel>
                   <UserInput
+                  required
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -201,6 +200,9 @@ const SignUp = () => {
                   SIGN UP
                 </Button>
                 </Form>
+            :
+            <div>You are now a user</div>
+            }
             </SignupContainer>
             <Subtitle>Welcome!</Subtitle>
         </SignupWrapper>

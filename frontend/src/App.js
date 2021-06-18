@@ -18,6 +18,10 @@ import SignUp from './components/SignUp';
 import Main from './components/Main';
 import Welcome from './components/Welcome';
 
+import About from './pages/About';
+import ForFree from './pages/ForFree';
+import Contact from './pages/Contact'
+
 import ResourcesList from "components/ResourcesList";
 import { Meetups } from "pages/Meetups";
 import { Organizations } from "pages/Organizations";
@@ -61,6 +65,18 @@ export const App = () => {
 
           <Route path="/Meetups">
             <Meetups />
+          </Route>
+
+          <Route path="/About">
+            <About />
+          </Route>
+
+          <Route path="/ForFree">
+            <ForFree />
+          </Route>
+
+          <Route path="/Contact">
+            <Contact />
           </Route>
 
           <Route path="/Organizations">

@@ -187,7 +187,7 @@ const SignIn = () => {
     return (
         <SigninWrapper>
            <SigninContainer>
-           <Title>Welcome to WIT meeting point</Title>
+           <Title>WIT meeting point</Title>
             <Form onSubmit={onFormSubmit}>    
                 <InputLabel>
                   Username

@@ -30,9 +30,8 @@ const FormWrapper = styled.div`
 const FormContainer = styled.div`
     height: 100%; 
     margin: 20px auto; 
-    background:;
     border-radius: 5px;
-    color: rgb(243,225,226);
+    background-color: rgb(243,225,226);
     max-width: 300px; 
     display: flex;
     flex-direction: column;
@@ -171,7 +170,7 @@ return (
         <FormContainer>
         <ResourceForm>
           <ResourceLabel>
-         Resource name
+           Resource name
           </ResourceLabel>
           <ResourceInput
               id="usernameInput"

@@ -2,6 +2,27 @@ import React from 'react'
 
 import styled from 'styled-components'
 
+import background from '../assets/background.png'
+
+
+const Wrapper = styled.div`
+  height: 100%;
+  min-width: 100%
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(${background});
+  margin: 0;
+  padding: 0;
+
+@media (min-width: 668px) {
+  background-image: url(${background});
+  background-size: cover;
+  background-position-x: 25%;
+  background-repeat: no-repeat;
+}
+`;
+
 const Text = styled.p`
   font-size: 15px;
   color: rgb(65,87,122);
@@ -31,8 +52,10 @@ const Title = styled.h1`
 const Contact = () => {
   return (
       <>
+      <Wrapper>
       <Title>Contact</Title>
       <Text>Do you have questions? Suggestions? Reach us here:</Text>
+      </Wrapper>
       </>
   )
 

@@ -130,7 +130,7 @@ const SigninImage = styled.img`
    width: 100%;
   
   @media (min-width: 668px) {
-    
+    width: 100%;
   }
 `;
 
@@ -187,8 +187,8 @@ const SignIn = () => {
     return (
         <SigninWrapper>
            <SigninContainer>
-            <Form onSubmit={onFormSubmit}>
-                <Title>Welcome to WIT meeting point</Title>
+           <Title>Welcome to WIT meeting point</Title>
+            <Form onSubmit={onFormSubmit}>    
                 <InputLabel>
                   Username
                 </InputLabel>
@@ -214,10 +214,10 @@ const SignIn = () => {
               {errors && <p>OOPS, looks like you don't have an account yet. You are welcome to create a new one!</p>}
             <Button type="submit">SIGN IN</Button>
             </Form>
-            <SigninImage src={women} alt="group of women" />
-             <Subtitle>Not a member? Join us <Link to="/signup">here</Link></Subtitle>
-           </SigninContainer>
-        </SigninWrapper>
+        < SigninImage src={women} alt="group of women" />
+        <Subtitle>Not a member? Join us <Link to="/signup">here</Link></Subtitle> 
+     </SigninContainer>
+     </SigninWrapper>
     )
 }
 

@@ -5,6 +5,10 @@ import { StyledMenu } from './Menu.styled';
 const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
+       <a href="/Home">
+        <span role="img" aria-label="about wit">&#127968;</span>
+        Home
+      </a>
       <a href="/About">
         <span role="img" aria-label="about wit">&#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;</span>
         About WIT

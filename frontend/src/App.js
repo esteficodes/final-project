@@ -69,6 +69,10 @@ export const App = () => {
             <Meetups />
           </Route>
 
+          <Route path="/Home">
+            <Main />
+          </Route>
+
           <Route path="/About">
             <About />
           </Route>

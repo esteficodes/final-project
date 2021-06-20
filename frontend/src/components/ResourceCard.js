@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import Rating from "components/Rating"
+
 const Card = styled.div`
 background-color: #f4d8cb;
 color: #000;
 border: 2px solid #98a7b2;
-border-radius: 50%;
 -webkit-box-shadow: 0 15px 10px #777;
 -moz-box-shadow: 0 15px 10px #777;
 box-shadow: 0 15px 10px #777;
@@ -44,6 +45,7 @@ const ResourceCard = ({ name, type, language, _id }) => {
          
         </Card>
       </Link>
+      <Rating />
     </>
   );
 };

@@ -19,10 +19,25 @@ const TextArea = styled.div`
   flex-direction: "column";
   align-items: "center";
 `;
-const Button = styled.button` 
-  display: "flex";
-  flex-direction: "column";
-  align-items: "center";
+const Button = styled.button`
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 20px;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 20px;
+    background: rgb(63,177,181);
+    color: rgb(243,225,226);
+    border: none;
+    &:hover {
+      background: rgb(212,9,100);
+      transform: scale(1.1);
+      cursor: pointer
+    }
 `;
 const colors = {
     orange: "#FFBA5A",

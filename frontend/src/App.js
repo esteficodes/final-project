@@ -28,7 +28,6 @@ import { Organizations } from "pages/Organizations";
 import { Communities } from "pages/Communities";
 import { Events } from "pages/Events";
 import { Schools } from "pages/Schools";
-import { Websites } from "pages/Websites";
 import NewResourceForm from "components/NewResourceForm";
 import ResourceCard  from "components/ResourceCard";
 

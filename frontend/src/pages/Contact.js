@@ -2,29 +2,42 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import background from '../assets/background.png'
+import women from '../assets/women.png'
 
 
-const Wrapper = styled.div`
-  height: 100%;
-  min-width: 100%
+const MainContainer = styled.div`
+  width: 100%;
   display: flex;
+  margin: 0; 
+  margin-left: 10%;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (min-width: 668px){
+    width: 80%;
+  }
+`;
+const Section = styled.div`
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-image: url(${background});
-  margin: 0;
-  padding: 0;
-
-@media (min-width: 668px) {
-  background-image: url(${background});
-  background-size: cover;
-  background-position-x: 25%;
-  background-repeat: no-repeat;
-}
+  padding: 10px;
+  margin: 30px;
+  background-color: rgb(255,255,255, 0.3);
+  -webkit-box-shadow: 3px 3px 23px 3px rgba(180,194,216,0.5); 
+  box-shadow: 3px 3px 23px 3px rgba(180,194,216,0.5);
+  border-radius: 20px;
+`;
+const TextBox = styled.div`
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
 `;
 
 const Text = styled.p`
-  font-size: 15px;
+  font-size: 20px;
   color: rgb(65,87,122);
   padding: 8px;
   margin:0;
@@ -48,14 +61,44 @@ const Title = styled.h1`
     font-size: 30px;
   }
 `;
+const SubTitle = styled.h2`
+  font-family: 'Roboto Slab', sans-serif;
+  color: rgb(234,70,100);
+  font-size: 20px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 30px;
+
+  @media (min-width: 668px) { 
+    font-size: 30px;
+    
+  }
+`;
+const ContactImage = styled.img`
+   width: 100%;
+  
+  @media (min-width: 668px) {
+    width: 100%;
+  }
+`;
 
 const Contact = () => {
   return (
       <>
-      <Wrapper>
+      
+        <MainContainer>
       <Title>Contact</Title>
-      <Text>Do you have questions? Suggestions? Reach us here:</Text>
-      </Wrapper>
+      <ContactImage src={women} alt="group of women" />
+      <SubTitle>Do you have questions? Suggestions? Reach us here:</SubTitle>
+      <Section>
+      <TextBox>
+        <Text>witmeetingpoint@gmail.com</Text>
+      </TextBox>
+      </Section>
+      </MainContainer>
+      
       </>
   )
 

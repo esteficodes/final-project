@@ -81,7 +81,8 @@ export const Communities = () => {
 
   return (
     <>
-      <Link to="/">
+    
+      <Link to="/Main">
         <span>&#x2B05; </span>
         <span> BACK</span>
       </Link>
@@ -94,6 +95,7 @@ export const Communities = () => {
       <Cardbox>
         {resources && resources.map((resource) => <ResourceCard {...resource} key={resource._id} />)}
       </Cardbox>
+      
     </>
   );
 };

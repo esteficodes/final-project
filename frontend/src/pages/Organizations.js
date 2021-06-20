@@ -81,7 +81,7 @@ export const Organizations = () => {
 
   return (
     <>
-      <Link to="/">
+      <Link to="/Main">
         <span>&#x2B05; </span>
         <span> BACK</span>
       </Link>

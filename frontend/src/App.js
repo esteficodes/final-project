@@ -22,7 +22,6 @@ import About from './pages/About';
 import ForFree from './pages/ForFree';
 import Contact from './pages/Contact'
 
-import ResourcesList from "components/ResourcesList";
 import { Meetups } from "pages/Meetups";
 import { Organizations } from "pages/Organizations";
 import { Communities } from "pages/Communities";
@@ -30,7 +29,8 @@ import { Events } from "pages/Events";
 import { Schools } from "pages/Schools";
 import NewResourceForm from "components/NewResourceForm";
 import { Details } from "pages/Details";
-import ResourceCard  from "components/ResourceCard";
+import { Websites } from "pages/Websites";
+
 
 
 const reducer = combineReducers({
@@ -62,15 +62,13 @@ export const App = () => {
             <Route path="/welcome" component={Welcome} />
             <Route path="/newresource" component={NewResourceForm} />
 
-            <Route path="/" exact>
-            <ResourcesList />
-            </Route>
+            
 
           <Route path="/Meetups">
             <Meetups />
           </Route>
 
-          <Route path='/Details'>
+          <Route path='/resources/:_id'>
           <Details />
           
         </Route>
@@ -106,9 +104,12 @@ export const App = () => {
             <Schools />
           </Route>
 
-          <Route path="/resource">
-            <ResourceCard />
-            </Route>
+          <Route path="/Websites">
+            <Websites />
+          </Route>
+
+
+          
           </Switch>
           
         </Provider>

@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import Rating from "components/Rating"
+
+
 
 const Card = styled.div`
 background-color: #f4d8cb;
@@ -30,10 +31,10 @@ padding: 5px;
 
 
 
-const ResourceCard = ({ name, type, language, _id }) => {
+const ResourceCard = ({ name, type, language, url, description, _id }) => {
   return (
     <>
-      <Link to={`/resources/${_id}`}>
+    <Link to={`/resources/${_id}`}>
         <Card>
           <h2>{name}</h2>
           <Text>
@@ -45,7 +46,7 @@ const ResourceCard = ({ name, type, language, _id }) => {
          
         </Card>
       </Link>
-      <Rating />
+      
     </>
   );
 };

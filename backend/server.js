@@ -148,6 +148,20 @@ app.post("/resources", async (req, res) => {
   }
 });
 
+//GET BY ID OF RESOURCE
+
+app.get("/resources/:_id", async (req, res) => {
+  const { _id } = req.params;
+
+  try {
+    const oneResource = await Resource.findById(_id);
+    res.json(oneResource);
+  } catch (error) {
+    res.status(400).json({ error: "Something went wrong", details: error });
+  }
+});
+
+
 //GET BY NAME OF RESOURCE
 app.get("/resources/:name", async (req, res) => {
   const { name } = req.params;

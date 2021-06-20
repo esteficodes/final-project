@@ -1,25 +1,33 @@
-import React, { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
-import resources from "reducers/resources";
-import styled from 'styled-components'
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import styled from "styled-components";
+
+import Rating from "components/Rating"
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Card = styled.div`
-background-color: #f4d8cb;
-color: #000;
-border: 2px solid #98a7b2;
-border-radius: 25%;
--webkit-box-shadow: 0 15px 10px #777;
--moz-box-shadow: 0 15px 10px #777;
-box-shadow: 0 15px 10px #777;
-width: 300px;;
-margin: 40px;
-padding: 20px;
-font-size: 18px;
-display: flex;
-justify-content: center;
-align-items: center;
-text-align: center;
-height: 500px;
+  background-color: #f4d8cb;
+  color: #000;
+  border: 2px solid #98a7b2;
+  border-radius: 10%;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  width: 300px;
+  margin: 40px;
+  padding: 20px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 const Infobox = styled.div`
@@ -62,49 +70,69 @@ const Infobox = styled.div`
   }
 `;
 
-const Text = styled.text`
-margin: 5px;
-padding: 5px;
-`
+const Text = styled.p`
+  margin: 10px;
+  padding: 5px;
+  font-color: black;
+`;
+
+const BoldText = styled.p`
+  margin: 10px;
+  padding: 5px;
+  font-color: black;
+  font-weight: bold;
+`;
+
 
 const Container = styled.div`
-margin: 10px;
-width: auto;
-`
+  margin: 10px;
+  width: auto;
+`;
 
-
- export const Details = () => {
-  const { _id } = useParams()
-  const [details, setDetails] = useState({})
+export const Details = () => {
+  const { _id } = useParams();
+  const [resourceDetails, setResourceDetails] = useState({});
 
   useEffect(() => {
-    fetch(
-      `http://localhost:8080/resources/${_id}`
-    )
+    fetch(`http://localhost:8080/resources/${_id}`)
       .then((response) => response.json())
-      .then((json) => setDetails(json))
-  }, [_id])
+      .then((json) => setResourceDetails(json));
+  }, [_id]);
 
   return (
     <>
-      <Card>
-        
-          <Link to="/">
-            <span>&#x2B05;</span>
-            <span>BACK</span>
-          </Link>
-
-          <Infobox />
-            
-            <Container>
-              <h1>
-                {resources.name}
-              </h1>
-              <Text>{resources.description}</Text>
-              <Text> <a href={details.url}>Here you can explore the resource:<span role="img" aria-label="computer"> 👩🏻‍💻 </span></a></Text>
-            </Container>
+     
+    <Wrapper>
     
+    <Link to="/Main">
+        <span>&#x2B05;</span>
+        <span>BACK</span>
+      </Link>
+    
+
+      <Infobox />
+      
+      <Card>
+     
+        <Container>
+          <h1>{resourceDetails.name}</h1>
+          <Text>{resourceDetails.description}</Text>
+          <BoldText>
+            {" "}
+            <a href={resourceDetails.url}>
+              Click here to explore the resource
+              <span role="img" aria-label="computer">
+                {" "}
+                👩🏻‍💻{" "}
+              </span>
+            </a>
+          </BoldText>
+        </Container>
       </Card>
+     
+      <Rating />
+      
+      </Wrapper>
     </>
-  )
-}
+  );
+};

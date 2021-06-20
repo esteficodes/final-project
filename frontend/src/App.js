@@ -30,6 +30,7 @@ import { Events } from "pages/Events";
 import { Schools } from "pages/Schools";
 import { Websites } from "pages/Websites";
 import NewResourceForm from "components/NewResourceForm";
+import ResourceCard  from "components/ResourceCard";
 
 
 const reducer = combineReducers({
@@ -101,8 +102,8 @@ export const App = () => {
             <Schools />
           </Route>
 
-          <Route path="/Websites">
-            <Websites />
+          <Route path="/resource">
+            <ResourceCard />
             </Route>
           </Switch>
           

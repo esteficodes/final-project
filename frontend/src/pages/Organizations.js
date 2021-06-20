@@ -74,7 +74,7 @@ export const Organizations = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/resources/type/npo")
+    fetch("http://localhost:8080/resources/type/npo")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

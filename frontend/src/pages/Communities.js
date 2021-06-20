@@ -74,7 +74,7 @@ export const Communities = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/resources/type/community")
+    fetch("http://localhost:8080/resources/type/community")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

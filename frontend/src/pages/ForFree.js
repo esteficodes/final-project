@@ -75,7 +75,7 @@ const ForFree = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/resources/free")
+    fetch("http://localhost:8080/resources/free")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

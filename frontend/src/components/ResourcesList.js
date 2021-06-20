@@ -74,7 +74,7 @@ const ResourcesList = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/resources/")
+    fetch("http://localhost:8080/resources/")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

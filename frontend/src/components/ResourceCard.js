@@ -41,6 +41,7 @@ const ResourceCard = ({ name, type, language, _id }) => {
           <Text>
             <b>Language:</b> {language}
           </Text>
+         
         </Card>
       </Link>
     </>

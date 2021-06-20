@@ -74,7 +74,7 @@ export const Events = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/resources/type/event")
+    fetch("http://localhost:8080/resources/type/event")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

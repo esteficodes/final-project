@@ -74,7 +74,7 @@ export const Meetups = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/resources/type/meetup")
+    fetch("http://localhost:8080/resources/type/meetup")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

@@ -29,6 +29,7 @@ import { Communities } from "pages/Communities";
 import { Events } from "pages/Events";
 import { Schools } from "pages/Schools";
 import NewResourceForm from "components/NewResourceForm";
+import { Details } from "pages/Details";
 import ResourceCard  from "components/ResourceCard";
 
 
@@ -69,6 +70,10 @@ export const App = () => {
             <Meetups />
           </Route>
 
+          <Route path='/Details'>
+          <Details />
+          
+        </Route>
           <Route path="/Home">
             <Main />
           </Route>

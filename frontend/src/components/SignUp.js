@@ -38,8 +38,16 @@ const SignupContainer = styled.div`
 
 
   @media (min-width: 668px) {
-  min-width: 400px; 
-  margin: 50px auto; 
+    min-width: 400px; 
+    margin: 50px auto; 
+}
+  @media (min-width: 768px) {
+    min-width: 600px; 
+    margin: 50px auto; 
+}
+  @media (min-width: 1024px) {
+    min-width: 800px; 
+    margin: 50px auto; 
 }
 `;
 const Form = styled.div`

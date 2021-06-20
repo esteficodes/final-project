@@ -90,7 +90,7 @@ const About = () => {
         <>
         <MainContainer>
             <Title>About WIT</Title>
-            <Text>Text about wit</Text>
+            <SubTitle>Text about wit</SubTitle>
             <Section>
               <TextBox>
                 <Text>

@@ -4,10 +4,10 @@ import { useHistory, Link } from 'react-router-dom'
 import { API_URL } from 'reusable/urls'
 import styled from 'styled-components'
 
-
 import women from '../assets/women.png'
 
 import user from '../reducers/user'
+
 
 
 const SigninWrapper = styled.div`
@@ -22,6 +22,21 @@ const SigninWrapper = styled.div`
   @media (min-width: 668px) {
     margin-top: 16px;
   }
+  @media (min-width: 768px) {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+    @media (min-width: 1024px) {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+      font-family:'Roboto', sans-serif;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
   `;
   const SigninContainer = styled.div`
     height: 100%; 
@@ -38,7 +53,11 @@ const SigninWrapper = styled.div`
     min-width: 400px; 
     margin: 50px auto; 
   }
-  `
+  @media (min-width: 768px) {
+    min-width: 400px; 
+    margin: 50px auto; 
+  }
+  `;
   const Form = styled.form`
     display: flex;
     flex-direction: column;
@@ -50,6 +69,18 @@ const SigninWrapper = styled.div`
  
 
     @media (min-width: 668px) {
+    padding: 18px 0;
+    margin-bottom: 10px;
+    min-width: 300px;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 18px 0;
+    margin-bottom: 10px;
+    min-width: 300px;
+  }
+  
+  @media (min-width: 1024px) {
     padding: 18px 0;
     margin-bottom: 10px;
     min-width: 300px;
@@ -66,6 +97,14 @@ const SigninWrapper = styled.div`
 
     @media (min-width: 668px) { 
     font-size: 20px;
+    margin:0;
+  }
+  @media (min-width: 768px) { 
+    font-size: 30px;
+    margin:0;
+  }
+  @media (min-width: 1024px) { 
+    font-size: 50px;
     margin:0;
   }
   `;
@@ -132,7 +171,34 @@ const SigninImage = styled.img`
   @media (min-width: 668px) {
     width: 100%;
   }
+  @media (min-width: 1024px) {
+    box-sizing: border-box;
+    width: 100%;
+    object-fit: cover;
+  }
 `;
+
+const FormAndImageContainer = styled.div`
+  height: 100%; 
+  margin: 20px auto; 
+  background:;
+  border-radius: 5px;
+  color: rgb(243,225,226);
+  max-width: 300px; 
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 668px) {
+  min-width: 400px; 
+  margin: 50px auto; 
+  }
+  @media (min-width: 1024px) {
+  min-width: 400px;  
+  display: flex;
+  flex-direction: row;
+}
+`
+
 
 const SignIn = () => {
     const [username, setUsername] = useState('')
@@ -188,6 +254,7 @@ const SignIn = () => {
         <SigninWrapper>
            <SigninContainer>
            <Title>WIT meeting point</Title>
+           <FormAndImageContainer>
             <Form onSubmit={onFormSubmit}>    
                 <InputLabel>
                   Username
@@ -215,6 +282,7 @@ const SignIn = () => {
             <Button type="submit">SIGN IN</Button>
             </Form>
         < SigninImage src={women} alt="group of women" />
+        </FormAndImageContainer>
         <Subtitle>Not a member? Join us <Link to="/signup">here</Link></Subtitle> 
      </SigninContainer>
      </SigninWrapper>

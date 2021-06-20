@@ -10,7 +10,7 @@ const Menu = ({ open }) => {
         Home
       </a>
       <a href="/About">
-        <span role="img" aria-label="about wit">&#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;</span>
+        <span role="img" aria-label="about wit">&#128105;&#8205;&#128187;</span> 
         About WIT
       </a>
       <a href="/ForFree">

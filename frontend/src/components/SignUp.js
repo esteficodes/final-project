@@ -1,5 +1,6 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 import user from '../reducers/user'
@@ -42,7 +43,7 @@ const SignupContainer = styled.div`
   margin: 50px auto; 
 }
 `;
-const Form = styled.div`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,10 +134,17 @@ const Button = styled.button`
 const SignUp = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-
+    
     const accessToken= useSelector(store => store.user.accessToken)
+    const errors = useSelector(store => store.user.errors)
     const dispatch = useDispatch()
-    const errors= useSelector(store => store.user.errors)
+    const history = useHistory()
+
+    useEffect(() => {
+      if (accessToken) {
+        history.push("/");
+      }
+    }, [accessToken, history]);
 
     const onFormSubmit = (e) => {
         e.preventDefault()
@@ -157,12 +165,9 @@ const SignUp = () => {
                       dispatch(user.actions.setUsername(data.username))
                       dispatch(user.actions.setAccessToken(data.accessToken))
                       dispatch(user.actions.setErrors(null))
-                  })
-
+                    })
               }  else {
-                   dispatch(user.actions.setErrors(data))
-                   setUsername('')
-                   setPassword('')                  
+                   dispatch(user.actions.setErrors(data))                                    
               }
           })
           .catch()
@@ -171,8 +176,6 @@ const SignUp = () => {
     return (
         <SignupWrapper>
             <SignupContainer>
-              {!accessToken
-                ?
                 <Form onSubmit={onFormSubmit}>
                   <Title>It's great that you are joining!</Title>
                   <InputLabel>
@@ -193,16 +196,14 @@ const SignUp = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                   {errors && <p>Oops, looks like something went wrong! Please, try again</p>}
+                   
                 <Button
-                  type="submit"
+                  type="submit" 
                 >
                   SIGN UP
                 </Button>
+                {errors && <p>Oops, looks like something went wrong! Please, try again</p>}
                 </Form>
-            :
-            <div>You are now a user</div>
-            }
             </SignupContainer>
             <Subtitle>Welcome!</Subtitle>
         </SignupWrapper>

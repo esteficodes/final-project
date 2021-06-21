@@ -6,6 +6,26 @@ This project is the result of our strong wish to see more diversity in the tech 
 
 ## Planning and building:
 
+We created our own **database** by collecting relevant resources from Scandinavia first, as those are the ones we are more familiar with, but secondly we decided to go international and started adding resources from other parts of the world. The resources are classified and selected according to the premise of  
+
 ## Backend
+
+## Endpoints
+
+GET / resources
+
+- endpoint to get all the resources
+
+POST / resources
+
+-endpoint to post new resources to the database, after authentication
+
+POST /signup 
+
+- endpoint to signup as new user with username and password
+
+POST /signin
+
+- endpoint for an already created user to sign in with username and password.
 
 ## View it live 

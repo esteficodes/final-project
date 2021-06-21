@@ -8,8 +8,14 @@ import { API_URL } from "../reusable/urls";
 import resources from "reducers/resources";
 import Logout from "./Logout";
 
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
-const Infobox = styled.div`
+const InfoBox = styled.div`
   margin: 100px auto;
   position: relative;
   display: block;
@@ -49,7 +55,7 @@ const Infobox = styled.div`
   }
 `;
 
-const Infotext = styled.p`
+const InfoText = styled.p`
   margin: 15px 20px;
   text-align: center;
   font-size: 20px;
@@ -90,22 +96,22 @@ const Main = () => {
   }, [accessToken, dispatch]);
 
   return (
-    <div>
-      <Infobox />
+    <MainContainer>
+      <InfoBox />
 
-      <Infotext>
+      <InfoText>
         WIT Library - Resources for all female tech stars like you
-      </Infotext>
-      <Infotext>
+      </InfoText>
+      <InfoText>
         <Link to="Meetups">Meetups</Link> |{" "}
         <Link to="Organizations">Organizations</Link> |{" "}
         <Link to="Communities">Communities</Link> |{" "}
         <Link to="Events">Events</Link> | <Link to="Schools">Schools</Link> |{" "}
         <Link to="Websites">Websites</Link>
-      </Infotext>
+      </InfoText>
       
       <Logout />
-    </div>
+      </MainContainer>
   );
 };
 

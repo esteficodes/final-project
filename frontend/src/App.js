@@ -100,6 +100,9 @@ export const App = () => {
             <Route path="/Websites">
               <Websites />
             </Route>
+            <Route path="/Details">
+              <Details />
+            </Route>
           </Switch>
         </Provider>
       </ThemeProvider>

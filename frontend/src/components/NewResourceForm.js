@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, batch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch, batch } from 'react-redux'
 import resources from 'reducers/resources';
 import { API_URL } from 'reusable/urls';
 
@@ -35,16 +35,23 @@ const FormContainer = styled.div`
     max-width: 300px; 
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   
 
     @media (min-width: 668px) {
     min-width: 400px; 
     margin: 50px auto; 
   }
-  `
+  `;
 const Title = styled.h1`
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 75px;
   padding-bottom: 20px;
+  color: rgb(63,177,181);
 `;
 const ResourceForm = styled.form`
     display: flex;
@@ -61,39 +68,37 @@ const ResourceForm = styled.form`
     margin-bottom: 10px;
     min-width: 300px;
   }
+  @media (min-width: 768px) {
+    padding: 18px 0;
+    margin-bottom: 10px;
+    min-width: 300px;
+  }
+  @media (min-width: 1024px) {
+    padding: 18px 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
 `;
 const ResourceFormImage = styled.img`
-width: 100%;
+width: 80%;
   
 @media (min-width: 668px) {
   width: 100%;
 }
 `;
-const InputLabel = styled.label`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    color: rgb(243,225,226);
-    font-weight: 500;
-    font-size: 25px;
-    border-radius: 20px;
-    margin: 10px;
-  `;
   const ResourceLabel = styled.label`
     display: flex;
     flex-direction: column;
     text-align: center;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    color: rgb(243,225,226);
+    color: rgb(63,177,181);
     font-weight: 500;
     font-size: 25px;
     border-radius: 20px;
     margin: 10px;
   `;
-  const ResourceInput = styled.input`
+  const NameInput = styled.input`
     width: 80%;
     height: 40px;
     margin-bottom: 15px;
@@ -104,6 +109,14 @@ const InputLabel = styled.label`
     -webkit-box-shadow: 3px 3px 23px 3px rgba(180,194,216,0.5); 
     box-shadow: 3px 3px 23px 3px rgba(180,194,216,0.5);
 `;
+  const ResourceInput = styled.input`
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+    margin-top: 15px;
+    padding: 10px 10px 30px;
+    overflow-wrap: break-word;
+    line-break: loose;
+  `;
   const Button = styled.button`
     box-sizing: border-box;
     display: inline-block;
@@ -112,7 +125,7 @@ const InputLabel = styled.label`
     height: 50px;
     border-radius: 20px;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 60px;
     font-family: 'Roboto Slab', sans-serif;
     font-size: 20px;
     background: rgb(63,177,181);
@@ -126,14 +139,14 @@ const InputLabel = styled.label`
 `;
 
 const NewResourceForm = () => {
-const [resourceName, setResourceName] = useState('')
+const [newResource, setNewResource] = useState('')
 
 const dispatch = useDispatch()
 
 
-const onFormSubmit = (e) => {
-  e.preventDefault()
-}
+//const onFormSubmit = (e) => {
+//  e.preventDefault()
+//}
     
 const options = {
 method: 'POST',
@@ -172,19 +185,29 @@ return (
           <ResourceLabel>
            Resource name
           </ResourceLabel>
-          <ResourceInput
-              id="usernameInput"
+          <NameInput
+                 id="resourceName"
                   type="text"
-                  value={resources} 
-                  onChange={(e) => setResourceName(e.target.value)}
-                  minLength="3"
-                  maxLength="20"
+                  value={newResource} 
+                  onChange={(e) => setNewResource(e.target.value)}
                   required />
-        </ResourceForm>
-        <Button>Add it!</Button>
-        </FormContainer>
-      <ResourceFormImage src={women} alt="group of women" />
-    </FormWrapper>
+          <ResourceLabel>
+           Description
+          </ResourceLabel>
+          <ResourceInput
+               id='newResource'
+                type="text"
+                minLength='5'
+                maxLength='140'
+                required
+                placeholder="What kind of resource is this?..."
+                value={newResource}
+                />
+          </ResourceForm>
+          <Button>Add it!</Button>
+          </FormContainer>
+        <ResourceFormImage src={women} alt="group of women" />
+      </FormWrapper>
 
 )
 

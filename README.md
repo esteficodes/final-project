@@ -16,6 +16,23 @@ GET / resources
 
 - endpoint to get all the resources
 
+GET / resources/:_id
+
+- endpoint to get one resource based on id
+
+GET / resources/:name
+
+- endpoint to get one resource based on name
+
+GET / resources/type/:type
+
+- endpoint to get all the resources of one specified type
+
+GET / resources/language/:language
+
+- endpoint to get all the resources of one specified language
+
+
 POST / resources
 
 -endpoint to post new resources to the database, after authentication

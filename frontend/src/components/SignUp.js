@@ -38,16 +38,8 @@ const SignupContainer = styled.div`
 
 
   @media (min-width: 668px) {
-    min-width: 400px; 
-    margin: 50px auto; 
-}
-  @media (min-width: 768px) {
-    min-width: 600px; 
-    margin: 50px auto; 
-}
-  @media (min-width: 1024px) {
-    min-width: 800px; 
-    margin: 50px auto; 
+  min-width: 400px; 
+  margin: 50px auto; 
 }
 `;
 const Form = styled.div`
@@ -144,7 +136,7 @@ const SignUp = () => {
 
     const accessToken= useSelector(store => store.user.accessToken)
     const dispatch = useDispatch()
-    const errors = useSelector(store => store.user.errors)
+    const errors= useSelector(store => store.user.errors)
 
     const onFormSubmit = (e) => {
         e.preventDefault()
@@ -165,16 +157,12 @@ const SignUp = () => {
                       dispatch(user.actions.setUsername(data.username))
                       dispatch(user.actions.setAccessToken(data.accessToken))
                       dispatch(user.actions.setErrors(null))
-
-                      localStorage.setItem('user', JSON.stringify({
-                        username: data.username,
-                        accessToken: data.accessToken
-                    }))
                   })
 
               }  else {
                    dispatch(user.actions.setErrors(data))
-                                     
+                   setUsername('')
+                   setPassword('')                  
               }
           })
           .catch()

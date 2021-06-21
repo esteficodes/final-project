@@ -136,8 +136,8 @@ app.get("/resources", async (req, res) => {
 //POST A RESOURCE
 app.post("/resources", async (req, res) => {
   try {
-    const Resource = await new Resource(req.body).save();
-    res.json(Resource);
+    const newResource = await new Resource(req.body).save();
+    res.json(newResource);
   } catch (error) {
     if (error.code === 11000) {
       res

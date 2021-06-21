@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, batch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import resources from 'reducers/resources';
 import { API_URL } from 'reusable/urls';
 
@@ -139,29 +140,40 @@ width: 80%;
 `;
 
 const NewResourceForm = () => {
-const [newResource, setNewResource] = useState('')
+const [name, setName] = useState('')
+const [language, setLanguage] = useState('')
+const [type, setType] = useState('')
+const [free, setFree] = useState('')
+const [online, setOnline] = useState('')
+const [description, setDescription] = useState('')
+const [url, setUrl] = useState('')
 
+const history = useHistory()
 const dispatch = useDispatch()
 
 
-//const onFormSubmit = (e) => {
-//  e.preventDefault()
-//}
+const onFormSubmit = (e) => {
+  e.preventDefault()
+}
     
 const options = {
 method: 'POST',
 headers: {
   'Content-type': 'application/json'
 },
-body: JSON.stringify({ resources })
+body: JSON.stringify({ name, language, type, free, online, description, url })
 }
+.then(() => {
+  history.push('/resources')
+})   
+
 
 fetch(API_URL('resources'), options)
       .then(res => res.json())
       .then(data => {
         if (data.success) {
           batch (() => {
-            dispatch(resources.actions.setUsername(data.resourcename))
+            dispatch(resources.actions.setusername(data.username))
             dispatch(resources.actions.setAccessToken(data.accessToken))
             dispatch(resources.actions.setErrors(null))
 
@@ -181,30 +193,96 @@ return (
     <FormWrapper>
         <Title> Do you know a cool resource? Add it here!</Title>
         <FormContainer>
-        <ResourceForm>
+        <ResourceForm onSubmit={onFormSubmit}>
           <ResourceLabel>
            Resource name
           </ResourceLabel>
           <NameInput
-                 id="resourceName"
+                 id="name"
                   type="text"
-                  value={newResource} 
-                  onChange={(e) => setNewResource(e.target.value)}
+                  value={name} 
+                  onChange={(e) => setName(e.target.value)}
                   required />
           <ResourceLabel>
-           Description
+           Language
           </ResourceLabel>
           <ResourceInput
-               id='newResource'
+               id='language'
                 type="text"
-                minLength='5'
+                minLength='4'
                 maxLength='140'
                 required
-                placeholder="What kind of resource is this?..."
-                value={newResource}
+                placeholder="What is the language in which the resource is written?..."
+                onChange={(e) => setLanguage(e.target.value)}
+                value={language}
+                />
+                <ResourceLabel>
+           Type
+          </ResourceLabel>
+          <ResourceInput
+               id='type'
+                type="text"
+                minLength='4'
+                maxLength='140'
+                required
+                placeholder="What type of resource is this? (School/Event/Meetup/Website/Community etc)"
+                onChange={(e) => setType(e.target.value)}
+                value={type}
+                />
+                <ResourceLabel>
+           Free
+          </ResourceLabel>
+          <ResourceInput
+               id='free'
+                type="text"
+                minLength='4'
+                maxLength='5'
+                required
+                placeholder="Is this resource free to use? If yes; enter true. If no; enter false"
+                onChange={(e) => setFree(e.target.value)}
+                value={free}
+                />
+                <ResourceLabel>
+           Online
+          </ResourceLabel>
+          <ResourceInput
+               id='online'
+                type="text"
+                minLength='4'
+                maxLength='5'
+                required
+                placeholder="Is this resource online based? If yes; enter true. If no; enter false"
+                onChange={(e) => setOnline(e.target.value)}
+                value={online}
+                />
+                <ResourceLabel>
+           Description
+          </ResourceLabel>
+                <ResourceInput
+               id='description'
+                type="text"
+                minLength='5'
+                maxLength='300'
+                required
+                placeholder="Describe the resource with a few sentences."
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+                />
+                <ResourceLabel>
+           URL
+          </ResourceLabel>
+                <ResourceInput
+               id='url'
+                type="text"
+                minLength='5'
+                maxLength='300'
+                required
+                placeholder="Enter the resource URL"
+                onChange={(e) => setUrl(e.target.value)}
+                value={url}
                 />
           </ResourceForm>
-          <Button>Add it!</Button>
+          <Button type="submit">Add it!</Button>
           </FormContainer>
         <ResourceFormImage src={women} alt="group of women" />
       </FormWrapper>

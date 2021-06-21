@@ -15,6 +15,7 @@ const RatingDiv = styled.div`
 const Stars = styled.div` 
   display: flex;
   flex-direction: row;
+  margin-top: 16px;
 `;
 const TextArea = styled.div` 
   display: flex;

@@ -83,11 +83,11 @@ const BoldText = styled.p`
   font-weight: bold;
 `;
 
-
 const Container = styled.div`
   margin: 10px;
   width: auto;
 `;
+
 
 export const Details = () => {
   const { _id } = useParams();
@@ -131,7 +131,7 @@ export const Details = () => {
       </Card>
      
       <Rating />
-      
+
       </Wrapper>
     </>
   );

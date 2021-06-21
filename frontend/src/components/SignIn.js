@@ -115,11 +115,20 @@ const SigninWrapper = styled.div`
     letter-spacing: 1px;
     text-align: center;
     margin-bottom: 0;
-    margin-top: 30px;
+    margin-top: 10px;
 
     @media (max-width: 668px) { 
     font-size: 20px;
     margin-top: 10px;
+  }
+  @media (max-width: 768px) { 
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  @media (max-width: 1024px) { 
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
   }
 `;
   const InputLabel = styled.label`
@@ -197,7 +206,7 @@ const FormAndImageContainer = styled.div`
   display: flex;
   flex-direction: row;
 }
-`
+`;
 
 
 const SignIn = () => {

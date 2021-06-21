@@ -2,7 +2,31 @@ import React from 'react';
 import { batch, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 
+import styled from 'styled-components'
+
 import user from '../reducers/user';
+
+const Button = styled.button`
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  width: 230px;
+  height: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 20px;
+  background: rgb(63,177,181);
+  color: rgb(243,225,226);
+  border: none;
+    &:hover {
+      background: rgb(212,9,100);
+      transform: scale(1.1);
+      cursor: pointer
+    }
+`;
+
 
 const Logout = () => {
     const dispatch = useDispatch();
@@ -20,7 +44,7 @@ const Logout = () => {
     return (
         <Link to="/">
         <div>
-            <button onClick={onButtonClick}>Logout</button>
+            <Button onClick={onButtonClick}>Logout</Button>
         </div>
         </Link>
     )

@@ -65,7 +65,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//STARTS DEFINING ROUTES
+//ENDPOINT TO DISPLAY ALL ENDPOINTS
 app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 })
@@ -122,10 +122,6 @@ app.get('/main', async (req, res) => {
   res.json(main)
 })
 
-//ENDPOINT TO DISPLAY ALL ENDPOINTS
-app.get("/", (req, res) => {
-  res.send(listEndpoints(app));
-});
 
 //GET ALL RESOURCES
 app.get("/resources", async (req, res) => {

@@ -134,6 +134,7 @@ const Button = styled.button`
 const SignUp = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [loggedIn, setLoggedIn] = useState(false)
     
     const accessToken= useSelector(store => store.user.accessToken)
     const errors = useSelector(store => store.user.errors)
@@ -141,10 +142,10 @@ const SignUp = () => {
     const history = useHistory()
 
     useEffect(() => {
-      if (accessToken) {
-        history.push("/");
+      if (accessToken && loggedIn) {
+        history.push("/Main");
       }
-    }, [accessToken, history]);
+    }, [accessToken, loggedIn, history]);
 
     const onFormSubmit = (e) => {
         e.preventDefault()
@@ -165,13 +166,18 @@ const SignUp = () => {
                       dispatch(user.actions.setUsername(data.username))
                       dispatch(user.actions.setAccessToken(data.accessToken))
                       dispatch(user.actions.setErrors(null))
+                      localStorage.setItem('user', JSON.stringify({
+                        username:data.username,
+                        accessToken: data.accessToken
+                      }))
                     })
-              }  else {
-                   dispatch(user.actions.setErrors(data))                                    
+                  setLoggedIn(true)
+                  } else {
+                    dispatch(user.actions.setErrors(data))
+                  }
+                })
+                .catch()
               }
-          })
-          .catch()
-    }
 
     return (
         <SignupWrapper>

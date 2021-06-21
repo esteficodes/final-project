@@ -92,7 +92,7 @@ const SigninWrapper = styled.div`
     font-size: 30px;
     text-align: center;
     padding: 5px;
-    margin-top: 10px;
+    margin-top: 50px;
     margin-bottom: 10px;
 
     @media (min-width: 668px) { 
@@ -105,7 +105,7 @@ const SigninWrapper = styled.div`
   }
   @media (min-width: 1024px) { 
     font-size: 50px;
-    margin:0;
+    margin-top:40px;
   }
   `;
   const Subtitle = styled.h2`
@@ -128,7 +128,7 @@ const SigninWrapper = styled.div`
   @media (max-width: 1024px) { 
     font-size: 20px;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 `;
   const InputLabel = styled.label`
@@ -261,9 +261,9 @@ const SignIn = () => {
 
     return (
         <SigninWrapper>
-           <SigninContainer>
-           <Title>WIT meeting point</Title>
+           <SigninContainer>        
            <FormAndImageContainer>
+           <Title>WIT meeting point</Title>
             <Form onSubmit={onFormSubmit}>    
                 <InputLabel>
                   Username
@@ -291,8 +291,9 @@ const SignIn = () => {
             <Button type="submit">SIGN IN</Button>
             </Form>
         < SigninImage src={women} alt="group of women" />
-        </FormAndImageContainer>
         <Subtitle>Not a member? Join us <Link to="/signup">here</Link></Subtitle> 
+        </FormAndImageContainer>
+       
      </SigninContainer>
      </SigninWrapper>
     )

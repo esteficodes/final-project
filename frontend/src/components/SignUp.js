@@ -51,7 +51,7 @@ const SignupContainer = styled.div`
     margin: 50px auto; 
 }
 `;
-const Form = styled.div`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;

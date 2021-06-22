@@ -173,9 +173,14 @@ fetch(API_URL('resources'), options)
       .then(data => {
         if (data.success) {
           batch (() => {
-            dispatch(resources.actions.setusername(data.username))
-            dispatch(resources.actions.setAccessToken(data.accessToken))
-            dispatch(resources.actions.setErrors(null))
+            dispatch(resources.actions.setName(data.name))
+            dispatch(resources.actions.setLanguage(data.language))
+            dispatch(resources.actions.setType(data.type))
+            dispatch(resources.actions.setFree(data.free))
+            dispatch(resources.actions.setOnline(data.online))
+            dispatch(resources.actions.setDescription(data.description))
+            dispatch(resources.actions.setUrl(data.url))
+
 
             localStorage.setItem('resource', JSON.stringify({
               resources:data.resources

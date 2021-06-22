@@ -150,7 +150,7 @@ const NewResourceForm = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-  ;
+  
 
   const options = {
     method: "POST",
@@ -166,9 +166,8 @@ const NewResourceForm = () => {
       description,
       url,
     }),
-  }.then(() => {
-    history.push("/resources");
-  });
+  }
+  console.log(e) 
 
   fetch(API_URL("resources"), options)
     .then((res) => res.json())
@@ -275,8 +274,8 @@ const NewResourceForm = () => {
             onChange={(e) => setUrl(e.target.value)}
             value={url}
           />
-        </ResourceForm>
-        <Button type="submit">Add it!</Button>
+          <Button type="submit">Add it!</Button>
+        </ResourceForm>       
       </FormContainer>
       <ResourceFormImage src={women} alt="group of women" />
     </FormWrapper>

@@ -41,14 +41,21 @@ const FormContainer = styled.div`
     margin: 50px auto;
   }
 `;
+const TitleContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`
 const Title = styled.h1`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 75px;
+  margin-top: 25px;
   padding-bottom: 20px;
   color: rgb(63, 177, 181);
+  font-size: 20px;
 `;
 const ResourceForm = styled.form`
   display: flex;
@@ -203,7 +210,9 @@ const NewResourceForm = () => {
   }
   return (
     <FormWrapper>
-      <Title> Do you know a cool resource? Add it here!</Title>
+      <TitleContainer>
+        <Title>Add a new resource</Title>
+      </TitleContainer>
       <FormContainer>
         <ResourceForm onSubmit={onFormSubmit}>
           <ResourceLabel>Resource name</ResourceLabel>
@@ -281,9 +290,9 @@ const NewResourceForm = () => {
             value={url}
           />
           <Button type="submit">Add it!</Button>
-        </ResourceForm>       
-      </FormContainer>
-      <ResourceFormImage src={women} alt="group of women" />
+        </ResourceForm> 
+        <ResourceFormImage src={women} alt="group of women" />      
+      </FormContainer>  
     </FormWrapper>
   );
 };

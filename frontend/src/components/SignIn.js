@@ -12,15 +12,20 @@ import user from '../reducers/user'
 
 const SigninWrapper = styled.div`
   height: 100%;
-  min-width: 100%
+  width: 100%
   display: flex;
+  flex-direction: column;
+  margin-top: 40px;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 0;
+  
   
   @media (min-width: 668px) {
     margin-top: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   @media (min-width: 768px) {
     background-size: cover;
@@ -38,26 +43,7 @@ const SigninWrapper = styled.div`
       left: 50%;
       transform: translate(-50%, -50%);
   `;
-  const SigninContainer = styled.div`
-    height: 100%; 
-    margin: 20px auto; 
-    background:;
-    border-radius: 5px;
-    color: rgb(243,225,226);
-    max-width: 300px; 
-    display: flex;
-    flex-direction: column;
   
-
-    @media (min-width: 668px) {
-    min-width: 400px; 
-    margin: 50px auto; 
-  }
-  @media (min-width: 768px) {
-    min-width: 400px; 
-    margin: 50px auto; 
-  }
-  `;
   const Form = styled.form`
     display: flex;
     flex-direction: column;
@@ -72,18 +58,21 @@ const SigninWrapper = styled.div`
     padding: 18px 0;
     margin-bottom: 10px;
     min-width: 300px;
+    box-sizing: border-box;
   }
   
   @media (min-width: 768px) {
     padding: 18px 0;
     margin-bottom: 10px;
     min-width: 300px;
+    box-sizing: border-box;
   }
   
   @media (min-width: 1024px) {
     padding: 18px 0;
     margin-bottom: 10px;
     min-width: 300px;
+    box-sizing: border-box;
   }
 `;
   const Title = styled.h1`
@@ -103,7 +92,9 @@ const SigninWrapper = styled.div`
     font-size: 30px;
     margin:0;
   }
-  @media (min-width: 1024px) { 
+  @media (min-width: 900px) {
+    display: flex;
+    flex-direction: row; 
     font-size: 50px;
     margin-top:40px;
   }
@@ -125,10 +116,11 @@ const SigninWrapper = styled.div`
     font-size: 20px;
     margin-top: 10px;
   }
-  @media (max-width: 1024px) { 
+  @media (max-width: 900px) { 
     font-size: 20px;
     margin-top: 10px;
-    margin-bottom: 40px;
+    width: 400px;
+    
   }
 `;
   const InputLabel = styled.label`
@@ -182,30 +174,9 @@ const SigninImage = styled.img`
   }
   @media (min-width: 1024px) {
     box-sizing: border-box;
-    width: 100%;
+    width: 50%;
     object-fit: cover;
   }
-`;
-
-const FormAndImageContainer = styled.div`
-  height: 100%; 
-  margin: 20px auto; 
-  background:;
-  border-radius: 5px;
-  color: rgb(243,225,226);
-  max-width: 300px; 
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 668px) {
-  min-width: 400px; 
-  margin: 50px auto; 
-  }
-  @media (min-width: 1024px) {
-  min-width: 400px;  
-  display: flex;
-  flex-direction: row;
-}
 `;
 
 
@@ -260,11 +231,9 @@ const SignIn = () => {
     }
 
     return (
-        <SigninWrapper>
-           <SigninContainer>        
-           <FormAndImageContainer>
-           <Title>WIT meeting point</Title>
-            <Form onSubmit={onFormSubmit}>    
+        <SigninWrapper>        
+           <Form onSubmit={onFormSubmit}>
+             <Title>WIT meeting point</Title>     
                 <InputLabel>
                   Username
                 </InputLabel>
@@ -287,14 +256,11 @@ const SignIn = () => {
                 minLength="5"
                 maxLength="50"
                 required />
-              {errors && <p>OOPS, looks like you don't have an account yet. You are welcome to create a new one!</p>}
-            <Button type="submit">SIGN IN</Button>
-            </Form>
-        < SigninImage src={women} alt="group of women" />
-        <Subtitle>Not a member? Join us <Link to="/signup">here</Link></Subtitle> 
-        </FormAndImageContainer>
-       
-     </SigninContainer>
+                <Button type="submit">SIGN IN</Button>
+                <Subtitle>Not a member? <Link to="/signup" >JOIN US</Link></Subtitle>
+              {errors && <p>OOPS, looks like you don't have an account yet. You are welcome to create a new one!</p>}        
+          </Form>
+        <SigninImage src={women} alt="group of women" />
      </SigninWrapper>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector, batch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import user from '../reducers/user'
@@ -10,55 +10,78 @@ import background from '../assets/background.png'
 import { API_URL } from '../reusable/urls'
 
 
-const SignupWrapper = styled.div`
+
+const SignUpWrapper = styled.div`
   height: 100%;
-  min-width: 100%
+  width: 100%
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url(${background});
-  margin: 0;
-  padding: 0;
+
 
 @media (min-width: 668px) {
+  margin-top: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-image: url(${background});
   background-size: cover;
   background-position-x: 25%;
   background-repeat: no-repeat;
 }
-`;
-const SignupContainer = styled.div`
-  height: 100%; 
-  margin: 20px auto; 
-  background:;
-  border-radius: 5px;
-  color: rgb(125,170,158);
-  max-width: 300px; 
-  display: flex;
-  flex-direction: column;
-
-
-  @media (min-width: 668px) {
-  min-width: 400px; 
-  margin: 50px auto; 
+@media (min-width: 768px) {
+  background-image: url(${background});
+  background-size: cover;
+    background-repeat: no-repeat;
+  
 }
+  @media (min-width: 1024px) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family:'Roboto', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(${background})
 `;
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  min-width: 300px;
-  justify-content: center;
-  border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    min-width: 300px;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 100px;
  
 
-  @media (min-width: 668px) {
+    @media (min-width: 668px) {
     padding: 18px 0;
-    margin: 10px 0;
+    margin-bottom: 10px;
     min-width: 300px;
   }
-`;
+  
+  @media (min-width: 768px) {
+    padding: 18px 0;
+    margin-bottom: 10px;
+    min-width: 300px;
+    box-sizing: border-box;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 18px 0;
+    margin-bottom: 10px;
+    min-width: 300px;
+    box-sizing: border-box;
+  }
+  `;
 const Title = styled.h1`
 font-family: 'Noto', sans-serif;
   color: rgb(244,8,134);
@@ -70,6 +93,14 @@ font-family: 'Noto', sans-serif;
 
   @media (min-width: 668px) { 
     font-size: 20px;
+    margin:0;
+  }
+  @media (min-width: 768px) { 
+    font-size: 40px;
+    margin:0;
+  }
+  @media (min-width: 900px) { 
+    font-size: 50px;
     margin:0;
   }
   `;
@@ -180,39 +211,31 @@ const SignUp = () => {
               }
 
     return (
-        <SignupWrapper>
-            <SignupContainer>
-                <Form onSubmit={onFormSubmit}>
-                  <Title>It's great that you are joining!</Title>
-                  <InputLabel>
+        <SignUpWrapper>
+            <Form onSubmit={onFormSubmit}>
+                <Title>It's great that you are joining!</Title>
+                   <InputLabel>
                     username
-                  </InputLabel>
-                  <UserInput
+                   </InputLabel>
+                   <UserInput
                     required
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                  />
-                  <InputLabel>
+                   />
+                   <InputLabel>
                    password
-                  </InputLabel>
-                  <UserInput
-                  required
+                   </InputLabel>
+                   <UserInput
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                  />
-                   
-                <Button
-                  type="submit" 
-                >
-                  SIGN UP
-                </Button>
-                {errors && <p>Oops, looks like something went wrong! Please, try again</p>}
-                </Form>
-            </SignupContainer>
-            <Subtitle>Welcome!</Subtitle>
-        </SignupWrapper>
+                    required/>                  
+                  <Button type="submit" >SIGN UP</Button>
+                  {errors && <p>Oops, looks like something went wrong! Please, try again</p>}
+                  <Subtitle>If you are a user, you can  <Link to="/signin">LOGIN</Link></Subtitle>
+                  </Form>           
+        </SignUpWrapper>
     )
 }
 export default SignUp

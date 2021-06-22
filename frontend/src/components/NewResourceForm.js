@@ -140,12 +140,22 @@ const NewResourceForm = () => {
   const [online, setOnline] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
+  //const [alert, showAlert] = useState ("")
 
   const history = useHistory();
   const dispatch = useDispatch();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    console.log(name, language, type, free, online, description, url)
+    setName('')
+    setLanguage('')
+    setType('')
+    setFree('')
+    setOnline('')
+    setDescription('')
+    setUrl('')
+    //showAlert('Thank You')
   
 
   const options = {

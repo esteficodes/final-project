@@ -90,13 +90,14 @@ const Contact = () => {
       
         <MainContainer>
       <Title>Contact</Title>
-      <ContactImage src={women} alt="group of women" />
       <SubTitle>Do you have questions? Suggestions? Reach us here:</SubTitle>
       <Section>
       <TextBox>
         <Text>witmeetingpoint@gmail.com</Text>
       </TextBox>
       </Section>
+      <ContactImage src={women} alt="group of women" />
+      
       </MainContainer>
       
       </>

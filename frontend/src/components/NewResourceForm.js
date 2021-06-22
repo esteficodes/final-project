@@ -18,7 +18,6 @@ const FormWrapper = styled.div`
   background-image: url(${formBackground});
   margin: 0;
   padding: 0;
-
 @media (min-width: 668px) {
   background-image: url(${formBackground});
   background-size: cover;
@@ -37,7 +36,6 @@ const FormContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   @media (min-width: 668px) {
     min-width: 400px;
     margin: 50px auto;
@@ -60,7 +58,6 @@ const ResourceForm = styled.form`
   min-width: 300px;
   justify-content: center;
   border-radius: 20px;
-
   @media (min-width: 668px) {
     padding: 18px 0;
     margin-bottom: 10px;
@@ -79,7 +76,6 @@ const ResourceForm = styled.form`
 `;
 const ResourceFormImage = styled.img`
   width: 80%;
-
   @media (min-width: 668px) {
     width: 100%;
   }
@@ -150,56 +146,51 @@ const NewResourceForm = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        language,
-        type,
-        free,
-        online,
-        description,
-        url,
-      }),
-    }.then(() => {
-      history.push("/resources");
-    });
+  
 
-    fetch(API_URL("resources"), options)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          batch(() => {
-            dispatch(resources.actions.setName(data.name));
-            dispatch(resources.actions.setLanguage(data.language));
-            dispatch(resources.actions.setType(data.type));
-            dispatch(resources.actions.setFree(data.free));
-            dispatch(resources.actions.setOnline(data.online));
-            dispatch(resources.actions.setDescription(data.description));
-            dispatch(resources.actions.setUrl(data.url));
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      language,
+      type,
+      free,
+      online,
+      description,
+      url,
+    }),
+  }
+  console.log(e) 
 
-            localStorage.setItem(
-              "resource",
-              JSON.stringify({
-                name,
-                language,
-                type,
-                free,
-                online,
-                description,
-                url,
-              })
-            );
-          });
-        } else {
-          dispatch(resources.actions.setErrors(data));
-        }
-      })
-      .catch();
-  };
+  fetch(API_URL("resources"), options)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success) {
+        batch(() => {
+          dispatch(resources.actions.setName(data.name));
+          dispatch(resources.actions.setLanguage(data.language));
+          dispatch(resources.actions.setType(data.type));
+          dispatch(resources.actions.setFree(data.free));
+          dispatch(resources.actions.setOnline(data.online));
+          dispatch(resources.actions.setDescription(data.description));
+          dispatch(resources.actions.setUrl(data.url));
+
+          localStorage.setItem(
+            "resource",
+            JSON.stringify({
+              resources: data.resources,
+            })
+          );
+        });
+      } else {
+        dispatch(resources.actions.setErrors(data));
+      }
+    })
+    .catch();
+  }
   return (
     <FormWrapper>
       <Title> Do you know a cool resource? Add it here!</Title>
@@ -280,8 +271,7 @@ const NewResourceForm = () => {
             value={url}
           />
           <Button type="submit">Add it!</Button>
-        </ResourceForm>
-        
+        </ResourceForm>       
       </FormContainer>
       <ResourceFormImage src={women} alt="group of women" />
     </FormWrapper>

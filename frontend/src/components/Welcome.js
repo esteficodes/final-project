@@ -6,6 +6,7 @@ import { API_URL } from 'reusable/urls'
 
 import resources from '../reducers/resources'
 import Logout from './Logout'
+import NewResourceForm from './NewResourceForm'
 
 const Welcome = () => {
     const accessToken = useSelector(store => store.user.accessToken)
@@ -44,6 +45,7 @@ const Welcome = () => {
 
     return (
       <div>welcome
+        <NewResourceForm />
         <h3 className="welcome-title">You can enter the memberarea <Link to="/main">here</Link></h3>
         <Logout />
       </div> //in this site we welcome users and diplay two main options > see the available resources and see what's hot (info from external apis)

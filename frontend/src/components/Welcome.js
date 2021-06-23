@@ -16,30 +16,7 @@ const WelcomeWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 100%;
-
-  
-  @media (min-width: 668px) {
-    height: 100%;
-    width: 100%
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  @media (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-    @media (min-width: 1024px) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    } 
-  `;
+`;
   const Title = styled.h1`
     font-family: 'Roboto', sans-serif;
     color: rgb(243,225,226);
@@ -73,35 +50,26 @@ const WelcomeWrapper = styled.div`
     margin-bottom: 0;
     margin-top: 10px;
 
-    @media (max-width: 668px) { 
+    @media (min-width: 668px) { 
     font-size: 20px;
     margin-top: 10px;
   }
-  @media (max-width: 768px) { 
-    font-size: 20px;
-    margin-top: 10px;
-  }
-  @media (max-width: 900px) { 
-    font-size: 20px;
-    margin-top: 10px;
-    width: 400px;
-    
-  }
+ 
 `;
   const Button = styled(Link)`
-  box-sizing: border-box;
-  display: inline-block;
-  text-align: center;
-  width: 230px;
-  height: 50px;
-  border-radius: 20px;
-  padding: 10px;
-  margin-top: 20px;
-  font-family: 'Roboto Slab', sans-serif;
-  font-size: 20px;
-  background: rgb(63,177,181);
-  color: white;
-  border: none;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    width: 230px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 40px;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 20px;
+    background: rgb(63,177,181);
+    color: rgb(243,225,226);
+    border: none;
   &:hover {
     background: rgb(212,9,100);
     transform: scale(1.1);
@@ -156,11 +124,12 @@ const Welcome = () => {
       <WelcomeWrapper>   
         <Title>Welcome to the WIT community!</Title>
         <Subtitle>Thank you for joining in. Let's get techy!</Subtitle>
-        <Lottie options={lottieOptions} /> 
-        <Subtitle>Now you can:</Subtitle>      
         <Button to="/signin">SIGN IN</Button>
         <Subtitle>Or</Subtitle> 
         <Logout />
+        <Lottie options={lottieOptions} /> 
+        <Subtitle>Now you can:</Subtitle>      
+        
       </WelcomeWrapper> 
     )
 }

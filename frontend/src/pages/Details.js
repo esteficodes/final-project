@@ -125,7 +125,7 @@ export const Details = () => {
      
     <Wrapper>
         <Button to="/Main">GO BACK</Button>
-
+        
       <Infobox />
       
       <Card>

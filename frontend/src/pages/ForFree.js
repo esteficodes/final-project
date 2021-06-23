@@ -70,6 +70,31 @@ const Cardbox = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;
+const ButtonLink = styled(Link)`
+box-sizing: border-box;
+display: flex;
+justify-content: center;
+align-self: center;
+text-align: center;
+width: 230px;
+height: 50px;
+border-radius: 20px;
+padding: 10px;
+margin-top: 20px;
+margin-bottom: 10px;
+font-family: 'Roboto Slab', sans-serif;
+font-size: 20px;
+background: rgb(63,177,181);
+color: rgb(253,253,253);
+border: none;
+text-decoration:none;
+
+  &:hover {
+    background: rgb(240,96,122);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+`;
 
 const ForFree = () => {
   const [resources, setResources] = useState([]);
@@ -82,6 +107,7 @@ const ForFree = () => {
 
   return (
     <>
+    <ButtonLink TO="/Main">GO BACK</ButtonLink>
       <Infobox />
 
       <Infotext>

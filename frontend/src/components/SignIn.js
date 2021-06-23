@@ -72,25 +72,15 @@ const SigninWrapper = styled.div`
   const Subtitle = styled.h2`
     font-family: 'Roboto Slab', sans-serif;
     color: rgb(243,225,226);
-    font-size: 30px;
+    font-size: 20px;
     letter-spacing: 1px;
     text-align: center;
     margin-bottom: 0;
     margin-top: 10px;
 
-    @media (max-width: 668px) { 
-    font-size: 20px;
+  @media (min-width: 668px) { 
+    font-size: 40px;
     margin-top: 10px;
-  }
-  @media (max-width: 768px) { 
-    font-size: 20px;
-    margin-top: 10px;
-  }
-  @media (max-width: 900px) { 
-    font-size: 20px;
-    margin-top: 10px;
-    width: 400px;
-    
   }
 `;
   const InputLabel = styled.label`

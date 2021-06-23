@@ -100,7 +100,7 @@ export const Websites = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/resources/type/website")
+    fetch("https://final-project-wit-app.herokuapp.com/resources/type/website")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

@@ -100,7 +100,7 @@ export const Organizations = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/resources/type/npo")
+    fetch("https://final-project-wit-app.herokuapp.com/resources/type/npo")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

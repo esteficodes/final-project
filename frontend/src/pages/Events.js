@@ -100,7 +100,7 @@ export const Events = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/resources/type/event")
+    fetch("https://final-project-wit-app.herokuapp.com/resources/type/event")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

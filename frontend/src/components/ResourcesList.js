@@ -74,7 +74,7 @@ const ResourcesList = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/resources/")
+    fetch("https://final-project-wit-app.herokuapp.com/resources/")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

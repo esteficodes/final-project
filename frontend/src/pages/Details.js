@@ -115,7 +115,7 @@ export const Details = () => {
   const [resourceDetails, setResourceDetails] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:8080/resources/${_id}`)
+    fetch(`https://final-project-wit-app.herokuapp.com/resources/${_id}`)
       .then((response) => response.json())
       .then((json) => setResourceDetails(json));
   }, [_id]);

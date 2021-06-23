@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, batch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import resources from "reducers/resources";
 import { API_URL } from "reusable/urls";
 
@@ -36,8 +35,14 @@ const FormContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   @media (min-width: 668px) {
-    min-width: 400px;
+    min-width: 600px;
+    margin: 50px auto;
+  }
+  
+  @media (min-width: 768px) {
+    min-width: 800px;
     margin: 50px auto;
   }
 `;
@@ -111,12 +116,15 @@ const NameInput = styled.input`
   box-shadow: 3px 3px 23px 3px rgba(180, 194, 216, 0.5);
 `;
 const ResourceInput = styled.input`
-  font-family: "Roboto Mono", monospace;
-  font-weight: 500;
-  margin-top: 15px;
-  padding: 10px 10px 30px;
-  overflow-wrap: break-word;
-  line-break: loose;
+  width: 80%;
+  height: 40px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+  border: none;
+  -webkit-box-shadow: 3px 3px 23px 3px rgba(180, 194, 216, 0.5);
+  box-shadow: 3px 3px 23px 3px rgba(180, 194, 216, 0.5);
 `;
 const Button = styled.button`
   box-sizing: border-box;
@@ -138,6 +146,9 @@ const Button = styled.button`
     cursor: pointer;
   }
 `;
+const Success = styled.text`
+  color: rgb(212, 9, 100);
+`
 
 const NewResourceForm = () => {
   const [name, setName] = useState("");
@@ -147,9 +158,9 @@ const NewResourceForm = () => {
   const [online, setOnline] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
-  //const [alert, showAlert] = useState ("")
-
-  const history = useHistory();
+  const [isSuccessfullySubmitted, setIsSuccessfullySubmitted,] = useState(false);
+  
+  
   const dispatch = useDispatch();
 
   const onFormSubmit = (e) => {
@@ -162,9 +173,8 @@ const NewResourceForm = () => {
     setOnline('')
     setDescription('')
     setUrl('')
-    //showAlert('Thank You')
+    setIsSuccessfullySubmitted(true);
   
-
   const options = {
     method: "POST",
     headers: {
@@ -230,7 +240,7 @@ const NewResourceForm = () => {
             minLength="4"
             maxLength="140"
             required
-            placeholder="What is the language in which the resource is written?..."
+            placeholder="Resource language?"
             onChange={(e) => setLanguage(e.target.value)}
             value={language}
           />
@@ -241,7 +251,7 @@ const NewResourceForm = () => {
             minLength="4"
             maxLength="140"
             required
-            placeholder="What type of resource is this? (School/Event/Meetup/Website/Community etc)"
+            placeholder="Type of resource"
             onChange={(e) => setType(e.target.value)}
             value={type}
           />
@@ -252,7 +262,7 @@ const NewResourceForm = () => {
             minLength="4"
             maxLength="5"
             required
-            placeholder="Is this resource free to use? If yes; enter true. If no; enter false"
+            placeholder="Free? true/false"
             onChange={(e) => setFree(e.target.value)}
             value={free}
           />
@@ -263,7 +273,7 @@ const NewResourceForm = () => {
             minLength="4"
             maxLength="5"
             required
-            placeholder="Is this resource online based? If yes; enter true. If no; enter false"
+            placeholder="Online based? true/false"
             onChange={(e) => setOnline(e.target.value)}
             value={online}
           />
@@ -274,7 +284,7 @@ const NewResourceForm = () => {
             minLength="5"
             maxLength="300"
             required
-            placeholder="Describe the resource with a few sentences."
+            placeholder="Describe it briefly"
             onChange={(e) => setDescription(e.target.value)}
             value={description}
           />
@@ -285,11 +295,14 @@ const NewResourceForm = () => {
             minLength="5"
             maxLength="300"
             required
-            placeholder="Enter the resource URL"
+            placeholder="Resource URL"
             onChange={(e) => setUrl(e.target.value)}
             value={url}
           />
           <Button type="submit">Add it!</Button>
+          {isSuccessfullySubmitted && (
+          <Success>Thank you for adding a new resource, star!!<span role="img" aria-label="star">⭐</span></Success>
+)}
         </ResourceForm> 
         <ResourceFormImage src={women} alt="group of women" />      
       </FormContainer>  

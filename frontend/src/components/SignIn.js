@@ -48,7 +48,7 @@ const SigninWrapper = styled.div`
 `;
   const Title = styled.h1`
     font-family: 'Roboto', sans-serif;
-    color: rgb(243,225,226);
+    color: white;
     font-size: 30px;
     text-align: center;
     padding: 5px;

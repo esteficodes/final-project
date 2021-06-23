@@ -16,6 +16,7 @@ const Section = styled.div`
   align-items: center;
   padding: 10px;
   margin: 30px;
+  margin-top: 60px;
   background-color: rgb(255,255,255, 0.3);
   -webkit-box-shadow: 3px 3px 23px 3px rgba(180,194,216,0.5); 
   box-shadow: 3px 3px 23px 3px rgba(180,194,216,0.5);

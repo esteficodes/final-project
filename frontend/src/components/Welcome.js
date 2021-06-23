@@ -16,6 +16,7 @@ const WelcomeWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 60px;
 `;
   const Title = styled.h1`
     font-family: 'Roboto', sans-serif;
@@ -127,9 +128,7 @@ const Welcome = () => {
         <Button to="/signin">SIGN IN</Button>
         <Subtitle>Or</Subtitle> 
         <Logout />
-        <Lottie options={lottieOptions} /> 
-        <Subtitle>Now you can:</Subtitle>      
-        
+        <Lottie options={lottieOptions} />          
       </WelcomeWrapper> 
     )
 }

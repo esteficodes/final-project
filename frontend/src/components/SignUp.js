@@ -229,7 +229,7 @@ const SignUp = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required/>                  
-                  <Button type="submit" >SIGN UP</Button>
+                  <Button type="submit">SIGN UP</Button>
                   {errors && <p>Oops, looks like something went wrong! Please, try again</p>}
                   <Subtitle>Already a user?<Link to="/signin">LOGIN</Link></Subtitle>
                   </Form>           

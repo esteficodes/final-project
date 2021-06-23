@@ -6,11 +6,17 @@ This project is the result of our strong wish to see more diversity in the tech 
 
 ## Planning and building:
 
-We created our own **database** by collecting relevant resources from Scandinavia first, as those are the ones we are more familiar with, but secondly we decided to go international and started adding resources from other parts of the world. The resources are classified and selected according to the premise of  
+We created our own **database** by collecting relevant resources from Scandinavia first, as those are the ones we are more familiar with, but secondly we decided to go international and started adding resources from other parts of the world. The resources are classified and selected according to the premise of being relevant and inclusive. 
 
-## Backend
+Users will be able to create a profile by signing up and, once signed into the application, they will be able to see the latest news about technology and a variety of  to contribute to the growth of the community by adding a new resource that was not yet included. There's also the possibility to star-rate the resources and submit a review with a comment about their experience, thus building an enriching dialogue within the community. On a future stage of the project, other capacities will be added to the user panel such as deleting a resource, modifying it and requesting to be and administrator. 
 
-## Endpoints
+## Backend ⚙️
+
+The backend for this app was also developed by us and consists of a **database** with 78 items (resources) and a **RESTful API built with Node.js and Express**. We collected our data via **MongoDB and mongoose** and used **Postman** to test the endpoints.
+
+## Endpoints Documentation 📄
+
+The App has, so far 8 endpoints in the server:
 
 GET / resources
 
@@ -45,4 +51,22 @@ POST /signin
 
 - endpoint for an already created user to sign in with username and password.
 
+Here is a link to the deployed backend: https://final-project-wit-app.herokuapp.com/
+
+## Frontend 🖼️
+
+The frontend is a **multi-page React app built using React Router and Redux with Toolkit**. We started by creating the App flow with a Main page to display all the resources and links to the diverse classes of resources by calling the endpoints and mapping through them to classify them. The main area and the New resource form are restricted areas. We have implemented **authentication** so that only registered users can access it.
+
+Our resource sections show the data by doing a **fetch to the backend and GET data** while the new resource form works by submitting data through a form to a **POST** endpoint.
+
+The navigation through the app is possible due to redirecting between components thanks to **React Router**, in combination with state management in the **Redux Store**.
+
+The overall general state of the App plus the hamburger menu are controlled by a **global state and hooks**. 
+
+We used the package **Star rating for React** to implement a 5 stars rating with a form to submit a review of the resource.
+
+The local styling was performed using **Styling Components 💅** . We have also added pictures from **Canva.com** and implemented **Lottie animations**.
+
 ## View it live 
+
+You can take a look at our project here: https://wit-meetingpoint.netlify.app/  

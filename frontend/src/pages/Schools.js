@@ -106,7 +106,7 @@ export const Schools = () => {
 
   return (
     <>
-      <ButtonLink TO="/Main">GO BACK</ButtonLink>
+      <ButtonLink to="/Main">GO BACK</ButtonLink>
       <Infobox />
         <Infotext>
             Time to learn how to code? Here are some coding schools for you.

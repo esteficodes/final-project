@@ -106,7 +106,7 @@ export const Websites = () => {
 
   return (
     <>
-      <ButtonLink TO="/Main">GO BACK</ButtonLink>
+      <ButtonLink to="/Main">GO BACK</ButtonLink>
       <Infobox />
         <Infotext>
             Explore the websites below and learn more about coding and other tech related topics.

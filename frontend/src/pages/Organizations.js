@@ -106,7 +106,7 @@ export const Organizations = () => {
 
   return (
     <>
-      <ButtonLink TO="/Main">GO BACK</ButtonLink>
+      <ButtonLink to="/Main">GO BACK</ButtonLink>
       <Infobox />
         <Infotext>
             There are plenty of great organizations, engaging in making the world of tech a better place for women. Here are some. 

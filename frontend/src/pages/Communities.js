@@ -107,7 +107,7 @@ export const Communities = () => {
   return (
     <>
     
-      <ButtonLink TO="/Main">GO BACK</ButtonLink>
+      <ButtonLink to="/Main">GO BACK</ButtonLink>
       <Infobox />
         <Infotext>
             Get involved in tech by joining a WIT community. 

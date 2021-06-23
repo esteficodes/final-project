@@ -106,7 +106,7 @@ export const Meetups = () => {
 
   return (
     <>
-      <ButtonLink TO="/Main">GO BACK</ButtonLink>
+      <ButtonLink to="/Main">GO BACK</ButtonLink>
       <Infobox />
         <Infotext>
             Meetups are great when you want to network and get to know other tech women. Get started by attending some of these.

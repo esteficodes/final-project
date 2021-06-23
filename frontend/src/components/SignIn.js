@@ -153,7 +153,7 @@ const SignIn = () => {
 
     useEffect(() => {
         if (accessToken && loggedIn) {
-            history.push('/welcome')
+            history.push('/Main')
         }   
     }, [accessToken, loggedIn, history])
 

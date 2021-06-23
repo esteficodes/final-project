@@ -6,15 +6,14 @@ import women from '../assets/women.png'
 
 
 const MainContainer = styled.div`
-  width: 100%;
   display: flex;
-  margin: 0; 
-  margin-left: 10%;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-top: 80px;
 
   @media (min-width: 668px){
-    width: 80%;
+    
   }
 `;
 const Section = styled.div`
@@ -88,7 +87,7 @@ const Contact = () => {
   return (
       <>
       
-        <MainContainer>
+  <MainContainer>
       <Title>Contact</Title>
       <SubTitle>Do you have questions? Suggestions? Reach us here:</SubTitle>
       <Section>
@@ -96,9 +95,8 @@ const Contact = () => {
         <Text>witmeetingpoint@gmail.com</Text>
       </TextBox>
       </Section>
-      <ContactImage src={women} alt="group of women" />
-      
-      </MainContainer>
+      <ContactImage src={women} alt="group of women" />     
+  </MainContainer>
       
       </>
   )

@@ -302,7 +302,7 @@ const NewResourceForm = () => {
           <Button type="submit">Add it!</Button>
           {isSuccessfullySubmitted && (
           <Success>Thank you for adding a new resource, star!!<span role="img" aria-label="star">⭐</span></Success>
-)}
+          )}
         </ResourceForm> 
         <ResourceFormImage src={women} alt="group of women" />      
       </FormContainer>  

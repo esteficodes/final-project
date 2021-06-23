@@ -100,7 +100,7 @@ export const Communities = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/resources/type/community")
+    fetch("https://final-project-wit-app.herokuapp.com/resources/type/community")
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

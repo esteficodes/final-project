@@ -87,7 +87,7 @@ const About = () => {
             <Section>
               <TextBox>
                 <Text>
-                WIT Meeting point is the place where you can find all kinds of resources aimed for women who are interested in starting their journey into the tech world. Find webistes, communites, schools, bootcamps and much more! According to Women in tech statistics for 2020, a whopping 80% of those in the tech field are still male, while only 20% are female. We dream of a society full of tech workplaces in which women and other minorities are not outnumbered by men anymore. Do you share this dream? Join us! 
+                WIT Meeting point is the place where you can find all kinds of resources aimed for women who are interested in starting their journey into the tech world. Find websites, communities, schools, bootcamps and much more! According to Women in tech statistics for 2020, a whopping 80% of those in the tech field are still male, while only 20% are female. We dream of a society full of tech workplaces in which women and other minorities are not outnumbered by men anymore. Do you share this dream? Join us! 
                 </Text>
               </TextBox>
             </Section>

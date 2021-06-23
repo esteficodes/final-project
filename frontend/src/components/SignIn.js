@@ -23,6 +23,7 @@ const SigninWrapper = styled.div`
     min-width: 300px;
     justify-content: center;
     border-radius: 20px;
+    margin-top: 50px;
  
 
     @media (min-width: 668px) {

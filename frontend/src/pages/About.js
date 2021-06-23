@@ -53,7 +53,7 @@ const Text = styled.p`
 
 const Title = styled.h1`
   font-family: 'Roboto Slab', sans-serif;
-  color: rgb(234,70,100);
+  color: white;
   font-size: 25px;
   text-align: center;
   margin:0;
@@ -71,7 +71,7 @@ const Title = styled.h1`
 `;
 const SubTitle = styled.h2`
   font-family: 'Roboto Slab', sans-serif;
-  color: rgb(234,70,100);
+  color: white;
   font-size: 20px;
   margin-top: 10px;
   letter-spacing: 1px;

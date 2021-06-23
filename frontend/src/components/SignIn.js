@@ -8,17 +8,13 @@ import women from '../assets/women.png'
 
 import user from '../reducers/user'
 
-
-
 const SigninWrapper = styled.div`
-  height: 100%;
-  width: 100%
+  height: 80%;
+  width: 80%
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
   justify-content: center;
-  align-items: center;
-  
+  align-items: center; 
   
   @media (min-width: 668px) {
     margin-top: 16px;
@@ -65,7 +61,6 @@ const SigninWrapper = styled.div`
     padding: 18px 0;
     margin-bottom: 10px;
     min-width: 300px;
-    box-sizing: border-box;
   }
   
   @media (min-width: 1024px) {
@@ -136,7 +131,7 @@ const SigninWrapper = styled.div`
     margin: 10px;
   `;
   const UserInput = styled.input`
-    width: 80%;
+    width: 60%;
     height: 40px;
     margin-bottom: 15px;
     border-radius: 20px;
@@ -187,7 +182,7 @@ const SignIn = () => {
     const [loggedIn, setLoggedIn] = useState(false)
 
     const accessToken= useSelector(store => store.user.accessToken)
-    //const errors = useSelector(store => store.user.errors)
+
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -258,9 +253,10 @@ const SignIn = () => {
                 required />
                 <Button type="submit">SIGN IN</Button>
                 <Subtitle>Not a member? <Link to="/signup" >JOIN US</Link></Subtitle>
-              {errors && <p>OOPS, looks like you don't have an account yet. You are welcome to create a new one!</p>}        
+              {errors && <p>OOPS, looks like you don't have an account yet. You are welcome to create a new one!</p>} 
+              <SigninImage src={women} alt="group of women" />       
           </Form>
-        <SigninImage src={women} alt="group of women" />
+      
      </SigninWrapper>
     )
 }

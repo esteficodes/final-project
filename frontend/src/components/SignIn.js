@@ -9,36 +9,11 @@ import women from '../assets/women.png'
 import user from '../reducers/user'
 
 const SigninWrapper = styled.div`
-  height: 80%;
-  width: 80%
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
-  
-  @media (min-width: 668px) {
-    margin-top: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  @media (min-width: 768px) {
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-    @media (min-width: 1024px) {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      box-sizing: border-box;
-      font-family:'Roboto', sans-serif;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  `;
+  align-items: center;
+ `;
   
   const Form = styled.form`
     display: flex;

@@ -4,28 +4,11 @@ import styled from 'styled-components'
 
 
 const AboutWrapper = styled.div`
-  height: 100%;
-  min-width: 100%
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-`
-
- const MainContainer = styled.div`
-  width: 100%;
-  display: flex;
-  margin: 0; 
-  margin-left: 10%;
   flex-direction: column;
   justify-content: center;
-
-  @media (min-width: 668px){
-    width: 80%;
-  }
-`;
-
+  align-items: center;
+`
 const Section = styled.div`
   display: flex;
   flex-direction: column;
@@ -99,13 +82,12 @@ const About = () => {
     return(
         <>
       <AboutWrapper>
-        <MainContainer>
             <Title>About WIT <span role="img" aria-label="about wit">&#128105;&#8205;&#128187;</span></Title>
             <SubTitle>Women In Technology Meeting Point</SubTitle>
             <Section>
               <TextBox>
                 <Text>
-                WIT Meeting point is the result of our strong wish to see more diversity in the tech industry. According to Women in tech statistics for 2020, a whopping 80% of those in the tech field are still male, while only 20% are female. We dream of a society full of tech workplaces in which women and other minorities are not outnumbered by men anymore. With our application we wish to contribute by offering an evergrowing list of resources specially aimed for women who wish to start building a career in technology. We have built a database of over 70 websites, bootcamps, schools, courses, articles, books and others which focus on bringing more women and girls into the tech industry. 
+                WIT Meeting point is the place where you can find all kinds of resources aimed for women who are interested in starting their journey into the tech world. Find webistes, communites, schools, bootcamps and much more! According to Women in tech statistics for 2020, a whopping 80% of those in the tech field are still male, while only 20% are female. We dream of a society full of tech workplaces in which women and other minorities are not outnumbered by men anymore. Do you share this dream? Join us! 
                 </Text>
               </TextBox>
             </Section>
@@ -117,18 +99,19 @@ const About = () => {
                 <SubTitle>Therese Hagelin</SubTitle>
                 <AboutLink href="https://github.com/ThereseHag" target="_blank" rel="noopener noreferrer">My GitHub account</AboutLink>
                 <Text>
-                  Lorem ipsum
+                Project manager with a passion for tech, now also turning into a frontend developer. Big fan of home decor, red wine and cappuccino, but now also APIs and React
                 </Text>
               </TextBox>
             </Section>
             <Section>
+            <TextBox>
               <SubTitle>Estefanía Quevedo</SubTitle>
               <AboutLink href="https://github.com/esteficodes" target="_blank" rel="noopener noreferrer">My GitHub account</AboutLink>
                <Text>
-                Lorem ipsum
+                Originally from Argentina, now based in Denmark. Former Online Languages Teacher and Translator, now starting my journey as a Developer and loving it!
               </Text>
+            </TextBox>
             </Section>
-        </MainContainer>
       </AboutWrapper>
         </>
     )

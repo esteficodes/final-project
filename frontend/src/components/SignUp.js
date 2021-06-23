@@ -174,7 +174,7 @@ const SignUp = () => {
 
     useEffect(() => {
       if (accessToken && loggedIn) {
-        history.push("/signin");
+        history.push("/welcome");
       }
     }, [accessToken, loggedIn, history]);
 

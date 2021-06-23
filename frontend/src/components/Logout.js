@@ -17,11 +17,11 @@ const Button = styled.button`
   margin-top: 20px;
   font-family: 'Roboto Slab', sans-serif;
   font-size: 20px;
-  background: rgb(63,177,181);
+  background: rgb(212,9,100);
   color: rgb(243,225,226);
   border: none;
     &:hover {
-      background: rgb(212,9,100);
+      background: rgb(63,177,181);
       transform: scale(1.1);
       cursor: pointer
     }

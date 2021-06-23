@@ -87,6 +87,27 @@ const Container = styled.div`
   margin: 10px;
   width: auto;
 `;
+const Button = styled(Link)`
+box-sizing: border-box;
+display: inline-block;
+text-align: center;
+width: 230px;
+height: 50px;
+border-radius: 20px;
+padding: 10px;
+margin-top: 20px;
+font-family: 'Roboto Slab', sans-serif;
+font-size: 20px;
+background: rgb(63,177,181);
+color: white;
+border: none;
+&:hover {
+  background: rgb(212,9,100);
+  color: white;
+  transform: scale(1.1);
+  cursor: pointer
+}
+`;
 
 
 export const Details = () => {
@@ -103,12 +124,7 @@ export const Details = () => {
     <>
      
     <Wrapper>
-    
-    <Link to="/Main">
-        <span>&#x2B05;</span>
-        <span>BACK</span>
-      </Link>
-    
+        <Button to="/Main">GO BACK</Button>
 
       <Infobox />
       

@@ -5,43 +5,40 @@ import { useHistory, Link } from 'react-router-dom'
 import { API_URL } from 'reusable/urls'
 
 import styled from 'styled-components'
-import background from '../assets/background.png'
+import Lottie from 'react-lottie'
+import Typing from '../lotties/Typing'
 
 import resources from '../reducers/resources'
 import Logout from './Logout'
 
 const WelcomeWrapper = styled.div`
-  height: 100%;
-  width: 100%
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
   justify-content: center;
   align-items: center;
-  
+  min-width: 100%;
+
   
   @media (min-width: 668px) {
-    margin-top: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
   }
   @media (min-width: 768px) {
-    background-size: cover;
-    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
     @media (min-width: 1024px) {
-      width: 100%;
-      height: 100%;
       display: flex;
       justify-content: center;
-      box-sizing: border-box;
-      font-family:'Roboto', sans-serif;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      align-items: center;
+    } 
   `;
   const Title = styled.h1`
     font-family: 'Roboto', sans-serif;
@@ -49,16 +46,16 @@ const WelcomeWrapper = styled.div`
     font-size: 30px;
     text-align: center;
     padding: 5px;
-    margin-top: 50px;
-    margin-bottom: 10px;
+    margin-top: 60px;
+  
 
     @media (min-width: 668px) { 
     font-size: 20px;
     margin:0;
   }
   @media (min-width: 768px) { 
-    font-size: 30px;
-    margin:0;
+    font-size: 50px;
+    margin-top:50px;
   }
   @media (min-width: 900px) {
     display: flex;
@@ -91,29 +88,45 @@ const WelcomeWrapper = styled.div`
     
   }
 `;
-  const WelcomeImage = styled.img`
-   width: 50%;
-  
-  @media (min-width: 668px) {
-    width: 100%;
-  }
-  @media (min-width: 1024px) {
-    box-sizing: border-box;
-    width: 50%;
-    object-fit: cover;
+  const Button = styled(Link)`
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  width: 230px;
+  height: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 20px;
+  background: rgb(63,177,181);
+  color: white;
+  border: none;
+  &:hover {
+    background: rgb(212,9,100);
+    transform: scale(1.1);
+    cursor: pointer
   }
 `;
-
+  
 const Welcome = () => {
     const accessToken = useSelector(store => store.user.accessToken)
 
     const dispatch = useDispatch()
     const history = useHistory()
 
+    const lottieOptions = {
+      animationData: Typing,
+      loop: true, 
+      autoplay: true, 
+      rendererSettings: {
+      preserveAspectRatio: "xMidYMid meet"
+  } 
+    }
 
     useEffect(() => {
         if (!accessToken) {
-            history.push('/signin')
+            history.push('/')
         }
     }, [accessToken, history])
 
@@ -141,10 +154,12 @@ const Welcome = () => {
 
     return (
       <WelcomeWrapper>   
-        <Title>Welcome to the WIT community</Title>
-        <Subtitle>Lorem ipsum</Subtitle>
-        <WelcomeImage src={background} alt="group of women"/>
-        <Link to="/main">here</Link>
+        <Title>Welcome to the WIT community!</Title>
+        <Subtitle>Thank you for joining in. Let's get techy!</Subtitle>
+        <Lottie options={lottieOptions} /> 
+        <Subtitle>Now you can:</Subtitle>      
+        <Button to="/signin">SIGN IN</Button>
+        <Subtitle>Or</Subtitle> 
         <Logout />
       </WelcomeWrapper> 
     )

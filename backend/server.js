@@ -13,7 +13,6 @@ mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 mongoose.Promise = Promise;
 
-//USER MODEL
 const User = mongoose.model('User', {
   username: {
     type: String,
@@ -30,7 +29,6 @@ const User = mongoose.model('User', {
   }
 })
 
-//RESOURCES MODEL
 const resourceSchema = new mongoose.Schema({
   name: String,
   language: String,
@@ -61,16 +59,13 @@ const authenticateUser = async (req, res, next) => {
 const port = process.env.PORT || 9000;
 const app = express();
 
-//MIDDLEWARES
 app.use(cors());
 app.use(express.json());
 
-//ENDPOINT TO DISPLAY ALL ENDPOINTS
 app.get('/', (req, res) => {
   res.send(listEndpoints(app))
 })
 
-//SIGNUP
 app.post('/signup', async (req, res) => {
   const { username, password } = req.body
 
@@ -93,7 +88,6 @@ app.post('/signup', async (req, res) => {
   }
 })
 
-//AUTHENTICATE USER
 app.post('/signin', async (req, res) => {
   const { username, password } = req.body
 
@@ -115,21 +109,17 @@ app.post('/signin', async (req, res) => {
   }
 })
 
-//MAIN ENDPOINT - LOGGED-IN USERS
 app.get('main', authenticateUser)
 app.get('/main', async (req, res) => {
   const main = await Resource.find()
   res.json(main)
 })
 
-
-//GET ALL RESOURCES
 app.get("/resources", async (req, res) => {
   const allResources = await Resource.find().sort({ name: 1 }).exec();
   res.json(allResources);
 });
 
-//POST A RESOURCE
 app.post("/resources", async (req, res) => {
   try {
     const newResource = await new Resource(req.body).save();
@@ -144,8 +134,6 @@ app.post("/resources", async (req, res) => {
   }
 });
 
-//GET BY ID OF RESOURCE
-
 app.get("/resources/:_id", async (req, res) => {
   const { _id } = req.params;
 
@@ -157,8 +145,6 @@ app.get("/resources/:_id", async (req, res) => {
   }
 });
 
-
-//GET BY NAME OF RESOURCE
 app.get("/resources/:name", async (req, res) => {
   const { name } = req.params;
 
@@ -174,7 +160,6 @@ app.get("/resources/:name", async (req, res) => {
   }
 });
 
-//GET BY TYPE OF RESOURCE
 app.get("/resources/type/:type", async (req, res) => {
   const { type } = req.params;
 
@@ -190,7 +175,6 @@ app.get("/resources/type/:type", async (req, res) => {
   }
 });
 
-//GET BY LANGUAGE
 app.get("/resources/language/:language", async (req, res) => {
   const { language } = req.params;
 
@@ -206,7 +190,6 @@ app.get("/resources/language/:language", async (req, res) => {
   }
 });
 
-//GET BY IS IT FREE OF CHARGE /GET BY IS IT ONLINE
 app.get("/resources/", async (res, req) => {
   const { name, free, online } = req.query;
 
@@ -234,8 +217,7 @@ app.get("/resources/", async (res, req) => {
   }
 });
 
-// Start the server
 app.listen(port, () => {
-  // eslint-disable-next-line
+  
   console.log(`Server running on http://localhost:${port}`);
 });

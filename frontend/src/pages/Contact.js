@@ -81,18 +81,16 @@ const ContactImage = styled.img`
 
 const Contact = () => {
   return (
-    <>
-      <MainContainer>
-        <Title>Contact</Title>
-        <SubTitle>Do you have questions? Suggestions? Reach us here:</SubTitle>
-        <Section>
-          <TextBox>
-            <Text>witmeetingpoint@gmail.com</Text>
-          </TextBox>
-        </Section>
-        <ContactImage src={women} alt="group of women" />
-      </MainContainer>
-    </>
+    <MainContainer>
+      <Title>Contact</Title>
+      <SubTitle>Do you have questions? Suggestions? Reach us here:</SubTitle>
+      <Section>
+        <TextBox>
+          <Text>witmeetingpoint@gmail.com</Text>
+        </TextBox>
+      </Section>
+      <ContactImage src={women} alt="group of women" />
+    </MainContainer>
   );
 };
 

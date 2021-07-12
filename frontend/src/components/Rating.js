@@ -163,7 +163,6 @@ const Rating = () => {
             maxLength="140"
             required
             placeholder="Leave a comment here..."
-            //               value={review}
           />
         </DetailsForm>
 

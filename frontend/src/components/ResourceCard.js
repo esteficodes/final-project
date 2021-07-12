@@ -28,19 +28,17 @@ const Text = styled.text`
 
 const ResourceCard = ({ name, type, language, url, description, _id }) => {
   return (
-    <>
-      <Link to={`/resources/${_id}`}>
-        <Card>
-          <h2>{name}</h2>
-          <Text>
-            <b>Type of website:</b> {type}
-          </Text>
-          <Text>
-            <b>Language:</b> {language}
-          </Text>
-        </Card>
-      </Link>
-    </>
+    <Link to={`/resources/${_id}`}>
+      <Card>
+        <h2>{name}</h2>
+        <Text>
+          <b>Type of website:</b> {type}
+        </Text>
+        <Text>
+          <b>Language:</b> {language}
+        </Text>
+      </Card>
+    </Link>
   );
 };
 

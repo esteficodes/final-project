@@ -134,7 +134,7 @@ app.post("/resources", async (req, res) => {
   }
 });
 
-app.get("/resources/:_id", async (req, res) => {
+app.get("/resources/id/:_id", async (req, res) => {
   const { _id } = req.params;
 
   try {
@@ -145,7 +145,7 @@ app.get("/resources/:_id", async (req, res) => {
   }
 });
 
-app.get("/resources/:name", async (req, res) => {
+app.get("/resources/name/:name", async (req, res) => {
   const { name } = req.params;
 
   try {

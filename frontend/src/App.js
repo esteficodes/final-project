@@ -58,49 +58,49 @@ export const App = () => {
             <Route path="/welcome" component={Welcome} />
             <Route path="/newresource" component={NewResourceForm} />
 
-            <Route path="/Meetups">
+            <Route path="/meetups">
               <Meetups />
             </Route>
 
-            <Route path="/resources/:_id">
+            <Route path="/resources/id/:_id">
               <Details />
             </Route>
-            <Route path="/Home">
+            <Route path="/home">
               <Main />
             </Route>
 
-            <Route path="/About">
+            <Route path="/about">
               <About />
             </Route>
 
-            <Route path="/ForFree">
+            <Route path="/forFree">
               <ForFree />
             </Route>
 
-            <Route path="/Contact">
+            <Route path="/contact">
               <Contact />
             </Route>
 
-            <Route path="/Organizations">
+            <Route path="/organizations">
               <Organizations />
             </Route>
 
-            <Route path="/Communities">
+            <Route path="/communities">
               <Communities />
             </Route>
 
-            <Route path="/Events">
+            <Route path="/events">
               <Events />
             </Route>
 
-            <Route path="/Schools">
+            <Route path="/schools">
               <Schools />
             </Route>
 
-            <Route path="/Websites">
+            <Route path="/websites">
               <Websites />
             </Route>
-            <Route path="/Details">
+            <Route path="/details">
               <Details />
             </Route>
           </Switch>

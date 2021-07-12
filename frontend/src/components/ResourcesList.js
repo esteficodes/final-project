@@ -87,7 +87,11 @@ const ResourcesList = () => {
         WIT Library - Resources for all female tech stars like you
       </Infotext>
       <Infotext>
-      <Link to="Meetups">Meetups</Link> | <Link to="Organizations">Organizations</Link> | <Link to="Communities">Communities</Link> | <Link to="Events">Events</Link> | <Link to="Schools">Schools</Link> | <Link to="Websites">Websites</Link>
+        <Link to="Meetups">Meetups</Link> |{" "}
+        <Link to="Organizations">Organizations</Link> |{" "}
+        <Link to="Communities">Communities</Link> |{" "}
+        <Link to="Events">Events</Link> | <Link to="Schools">Schools</Link> |{" "}
+        <Link to="Websites">Websites</Link>
       </Infotext>
 
       <Cardbox>

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
-import styled from 'styled-components'
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import ResourceCard from 'components/ResourceCard';
+import ResourceCard from "components/ResourceCard";
 
 const Infobox = styled.div`
   margin: 100px auto;
@@ -71,30 +71,30 @@ const Cardbox = styled.div`
   }
 `;
 const ButtonLink = styled(Link)`
-box-sizing: border-box;
-display: flex;
-justify-content: center;
-align-self: center;
-text-align: center;
-width: 130px;
-height: 50px;
-border-radius: 20px;
-padding: 10px;
-margin-top: 80px;
-margin-left: 40px;
-margin-bottom: 10px;
-font-family: 'Roboto Slab', sans-serif;
-font-size: 20px;
-background: rgb(63,177,181);
-color: rgb(253,253,253);
-border: none;
-text-decoration:none;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  width: 130px;
+  height: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 80px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 20px;
+  background: rgb(63, 177, 181);
+  color: rgb(253, 253, 253);
+  border: none;
+  text-decoration: none;
 
   &:hover {
-    background: rgb(240,96,122);
+    background: rgb(240, 96, 122);
     transform: scale(1.1);
     cursor: pointer;
-}
+  }
 `;
 
 const ForFree = () => {
@@ -108,14 +108,12 @@ const ForFree = () => {
 
   return (
     <>
-    <ButtonLink TO="/Main">GO BACK</ButtonLink>
+      <ButtonLink TO="/Main">GO BACK</ButtonLink>
       <Infobox />
 
+      <Infotext>WIT Library - Free resources to start coding</Infotext>
       <Infotext>
-        WIT Library - Free resources to start coding
-      </Infotext>
-      <Infotext>
-      <Link to="Free">Free resources</Link> |
+        <Link to="Free">Free resources</Link> |
       </Infotext>
 
       <Cardbox>

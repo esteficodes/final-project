@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import ResourceCard from "components/ResourceCard";
 
@@ -70,30 +70,30 @@ const Cardbox = styled.div`
   }
 `;
 const ButtonLink = styled(Link)`
-box-sizing: border-box;
-display: flex;
-justify-content: center;
-align-self: center;
-text-align: center;
-width: 130px;
-height: 50px;
-border-radius: 20px;
-padding: 10px;
-margin-top: 80px;
-margin-left: 40px;
-margin-bottom: 10px;
-font-family: 'Roboto Slab', sans-serif;
-font-size: 20px;
-background: rgb(63,177,181);
-color: rgb(253,253,253);
-border: none;
-text-decoration:none;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  width: 130px;
+  height: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 80px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 20px;
+  background: rgb(63, 177, 181);
+  color: rgb(253, 253, 253);
+  border: none;
+  text-decoration: none;
 
   &:hover {
-    background: rgb(240,96,122);
+    background: rgb(240, 96, 122);
     transform: scale(1.1);
     cursor: pointer;
-}
+  }
 `;
 
 export const Events = () => {
@@ -109,13 +109,16 @@ export const Events = () => {
     <>
       <ButtonLink to="/Main">GO BACK</ButtonLink>
       <Infobox />
-        <Infotext>
-            Would you like to have fun, network and learn more about tech? Then you should make sure to join one of those events.
-        </Infotext>
-      
+      <Infotext>
+        Would you like to have fun, network and learn more about tech? Then you
+        should make sure to join one of those events.
+      </Infotext>
 
       <Cardbox>
-        {resources && resources.map((resource) => <ResourceCard {...resource} key={resource._id} />)}
+        {resources &&
+          resources.map((resource) => (
+            <ResourceCard {...resource} key={resource._id} />
+          ))}
       </Cardbox>
     </>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-import Rating from "components/Rating"
+import Rating from "components/Rating";
 
 const Wrapper = styled.div`
   display: flex;
@@ -88,27 +88,26 @@ const Container = styled.div`
   width: auto;
 `;
 const Button = styled(Link)`
-box-sizing: border-box;
-display: inline-block;
-text-align: center;
-width: 230px;
-height: 50px;
-border-radius: 20px;
-padding: 10px;
-margin-top: 20px;
-font-family: 'Roboto Slab', sans-serif;
-font-size: 20px;
-background: rgb(63,177,181);
-color: white;
-border: none;
-&:hover {
-  background: rgb(212,9,100);
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  width: 230px;
+  height: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 20px;
+  background: rgb(63, 177, 181);
   color: white;
-  transform: scale(1.1);
-  cursor: pointer
-}
+  border: none;
+  &:hover {
+    background: rgb(212, 9, 100);
+    color: white;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 `;
-
 
 export const Details = () => {
   const { _id } = useParams();
@@ -122,32 +121,29 @@ export const Details = () => {
 
   return (
     <>
-     
-    <Wrapper>
+      <Wrapper>
         <Button to="/Main">GO BACK</Button>
-        
-      <Infobox />
-      
-      <Card>
-     
-        <Container>
-          <h1>{resourceDetails.name}</h1>
-          <Text>{resourceDetails.description}</Text>
-          <BoldText>
-            {" "}
-            <a href={resourceDetails.url}>
-              Click here to explore the resource
-              <span role="img" aria-label="computer">
-                {" "}
-                👩🏻‍💻{" "}
-              </span>
-            </a>
-          </BoldText>
-        </Container>
-      </Card>
-     
-      <Rating />
 
+        <Infobox />
+
+        <Card>
+          <Container>
+            <h1>{resourceDetails.name}</h1>
+            <Text>{resourceDetails.description}</Text>
+            <BoldText>
+              {" "}
+              <a href={resourceDetails.url}>
+                Click here to explore the resource
+                <span role="img" aria-label="computer">
+                  {" "}
+                  👩🏻‍💻{" "}
+                </span>
+              </a>
+            </BoldText>
+          </Container>
+        </Card>
+
+        <Rating />
       </Wrapper>
     </>
   );

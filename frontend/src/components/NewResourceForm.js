@@ -40,7 +40,7 @@ const FormContainer = styled.div`
     min-width: 600px;
     margin: 50px auto;
   }
-  
+
   @media (min-width: 768px) {
     min-width: 800px;
     margin: 50px auto;
@@ -50,8 +50,7 @@ const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-`
+`;
 const Title = styled.h1`
   display: flex;
   flex-direction: column;
@@ -148,7 +147,7 @@ const Button = styled.button`
 `;
 const Success = styled.text`
   color: rgb(212, 9, 100);
-`
+`;
 
 const NewResourceForm = () => {
   const [name, setName] = useState("");
@@ -158,66 +157,65 @@ const NewResourceForm = () => {
   const [online, setOnline] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
-  const [isSuccessfullySubmitted, setIsSuccessfullySubmitted,] = useState(false);
-  
-  
+  const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
+
   const dispatch = useDispatch();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log(name, language, type, free, online, description, url)
-    setName('')
-    setLanguage('')
-    setType('')
-    setFree('')
-    setOnline('')
-    setDescription('')
-    setUrl('')
+    console.log(name, language, type, free, online, description, url);
+    setName("");
+    setLanguage("");
+    setType("");
+    setFree("");
+    setOnline("");
+    setDescription("");
+    setUrl("");
     setIsSuccessfullySubmitted(true);
-  
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify({
-      name,
-      language,
-      type,
-      free,
-      online,
-      description,
-      url,
-    }),
-  }
-  console.log(e) 
 
-  fetch(API_URL("resources"), options)
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.success) {
-        batch(() => {
-          dispatch(resources.actions.setName(data.name));
-          dispatch(resources.actions.setLanguage(data.language));
-          dispatch(resources.actions.setType(data.type));
-          dispatch(resources.actions.setFree(data.free));
-          dispatch(resources.actions.setOnline(data.online));
-          dispatch(resources.actions.setDescription(data.description));
-          dispatch(resources.actions.setUrl(data.url));
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        language,
+        type,
+        free,
+        online,
+        description,
+        url,
+      }),
+    };
+    console.log(e);
 
-          localStorage.setItem(
-            "resource",
-            JSON.stringify({
-              resources: data.resources,
-            })
-          );
-        });
-      } else {
-        dispatch(resources.actions.setErrors(data));
-      }
-    })
-    .catch();
-  }
+    fetch(API_URL("resources"), options)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          batch(() => {
+            dispatch(resources.actions.setName(data.name));
+            dispatch(resources.actions.setLanguage(data.language));
+            dispatch(resources.actions.setType(data.type));
+            dispatch(resources.actions.setFree(data.free));
+            dispatch(resources.actions.setOnline(data.online));
+            dispatch(resources.actions.setDescription(data.description));
+            dispatch(resources.actions.setUrl(data.url));
+
+            localStorage.setItem(
+              "resource",
+              JSON.stringify({
+                resources: data.resources,
+              })
+            );
+          });
+        } else {
+          dispatch(resources.actions.setErrors(data));
+        }
+      })
+      .catch();
+  };
   return (
     <FormWrapper>
       <TitleContainer>
@@ -301,11 +299,16 @@ const NewResourceForm = () => {
           />
           <Button type="submit">Add it!</Button>
           {isSuccessfullySubmitted && (
-          <Success>Thank you for adding a new resource, star!!<span role="img" aria-label="star">⭐</span></Success>
+            <Success>
+              Thank you for adding a new resource, star!!
+              <span role="img" aria-label="star">
+                ⭐
+              </span>
+            </Success>
           )}
-        </ResourceForm> 
-        <ResourceFormImage src={women} alt="group of women" />      
-      </FormContainer>  
+        </ResourceForm>
+        <ResourceFormImage src={women} alt="group of women" />
+      </FormContainer>
     </FormWrapper>
   );
 };

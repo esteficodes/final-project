@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 import ResourceCard from "components/ResourceCard";
 
@@ -70,55 +70,55 @@ const Cardbox = styled.div`
   }
 `;
 const ButtonLink = styled(Link)`
-box-sizing: border-box;
-display: flex;
-justify-content: center;
-align-self: center;
-text-align: center;
-width: 130px;
-height: 50px;
-border-radius: 20px;
-padding: 10px;
-margin-top: 80px;
-margin-left: 40px;
-margin-bottom: 10px;
-font-family: 'Roboto Slab', sans-serif;
-font-size: 20px;
-background: rgb(63,177,181);
-color: rgb(253,253,253);
-border: none;
-text-decoration:none;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  width: 130px;
+  height: 50px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 80px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 20px;
+  background: rgb(63, 177, 181);
+  color: rgb(253, 253, 253);
+  border: none;
+  text-decoration: none;
 
   &:hover {
-    background: rgb(240,96,122);
+    background: rgb(240, 96, 122);
     transform: scale(1.1);
     cursor: pointer;
-}
+  }
 `;
 
 export const Communities = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("https://final-project-wit-app.herokuapp.com/resources/type/community")
+    fetch(
+      "https://final-project-wit-app.herokuapp.com/resources/type/community"
+    )
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);
 
   return (
     <>
-    
       <ButtonLink to="/Main">GO BACK</ButtonLink>
       <Infobox />
-        <Infotext>
-            Get involved in tech by joining a WIT community. 
-        </Infotext>
-      
+      <Infotext>Get involved in tech by joining a WIT community.</Infotext>
 
       <Cardbox>
-        {resources && resources.map((resource) => <ResourceCard {...resource} key={resource._id} />)}
+        {resources &&
+          resources.map((resource) => (
+            <ResourceCard {...resource} key={resource._id} />
+          ))}
       </Cardbox>
-      
     </>
   );
 };

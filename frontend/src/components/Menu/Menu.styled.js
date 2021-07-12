@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledMenu = styled.nav`
   display: flex;
@@ -13,8 +13,8 @@ export const StyledMenu = styled.nav`
   left: 0;
   transition: transform 0.3s ease-in-out;
   transform: translateX(-100%);
-  transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
-  
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
+
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
   }
@@ -28,7 +28,7 @@ export const StyledMenu = styled.nav`
     color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
     transition: color 0.3s linear;
-    
+
     @media (max-width: ${({ theme }) => theme.mobile}) {
       font-size: 1.5rem;
       text-align: center;

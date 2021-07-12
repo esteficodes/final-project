@@ -22,11 +22,11 @@ GET / resources
 
 - endpoint to get all the resources
 
-GET / resources/:_id
+GET / resources/id/:_id
 
 - endpoint to get one resource based on id
 
-GET / resources/:name
+GET / resources/name/:name
 
 - endpoint to get one resource based on name
 

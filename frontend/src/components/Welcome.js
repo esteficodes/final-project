@@ -101,7 +101,7 @@ const Welcome = () => {
     const options = {
       method: "GET",
       headers: {
-        Authorization: "accessToken",
+        Authorization: accessToken,
       },
     };
 

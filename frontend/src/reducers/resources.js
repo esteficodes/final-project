@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = localStorage.getItem("resources") 
+
 const resources = createSlice({
   name: "resources",
-  initialState: {
-    items: [],
-    errors: null,
-  },
+  initialState,
+  items: [],
+  errors: null,
   reducers: {
     setResources: (store, action) => {
       store.items = action.payload;

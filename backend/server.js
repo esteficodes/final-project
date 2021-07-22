@@ -109,10 +109,10 @@ app.post("/signin", async (req, res) => {
   }
 });
 
-app.get("main", authenticateUser);
-app.get("/main", async (req, res) => {
-  const main = await Resource.find();
-  res.json(main);
+app.get("allresources", authenticateUser);
+app.get("/allresources", async (req, res) => {
+  const fullResourcelist = await Resource.find();
+  res.json(fullResourcelist);
 });
 
 app.get("/resources", async (req, res) => {

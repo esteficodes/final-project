@@ -3,6 +3,7 @@ import { useDispatch, batch } from "react-redux";
 import resources from "reducers/resources";
 import { API_URL } from "reusable/urls";
 
+import {ButtonLink} from "styled-components/pagesStyles";
 import styled from "styled-components";
 
 import formBackground from "../assets/formBackground.png";
@@ -163,7 +164,6 @@ const NewResourceForm = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log(name, language, type, free, online, description, url);
     setName("");
     setLanguage("");
     setType("");
@@ -188,7 +188,6 @@ const NewResourceForm = () => {
         url,
       }),
     };
-    console.log(e);
 
     fetch(API_URL("resources"), options)
       .then((res) => res.json())
@@ -217,6 +216,8 @@ const NewResourceForm = () => {
       .catch();
   };
   return (
+    <>
+    <ButtonLink to="/Main">GO BACK</ButtonLink>
     <FormWrapper>
       <TitleContainer>
         <Title>Add a new resource</Title>
@@ -310,6 +311,7 @@ const NewResourceForm = () => {
         <ResourceFormImage src={women} alt="group of women" />
       </FormContainer>
     </FormWrapper>
+    </>
   );
 };
 

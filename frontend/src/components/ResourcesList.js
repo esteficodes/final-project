@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import ResourceCard from "components/ResourceCard";
+import API_URL from "reusable/urls";
 
 const Infobox = styled.div`
   margin: 100px auto;
@@ -74,7 +75,7 @@ const ResourcesList = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("https://final-project-wit-app.herokuapp.com/resources/")
+    fetch(API_URL("resources"))
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

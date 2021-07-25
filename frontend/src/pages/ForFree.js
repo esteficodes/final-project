@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
-import {ButtonLink, Infobox, Infotext, Cardbox} from "styled-components/pagesStyles";
+import {
+  ButtonLink,
+  Infobox,
+  Infotext,
+  Cardbox,
+} from "styled-components/pagesStyles";
 
 import ResourceCard from "components/ResourceCard";
-
 
 const ForFree = () => {
   const [resources, setResources] = useState([]);

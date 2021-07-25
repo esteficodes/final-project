@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-import {ButtonLink, Infobox, Infotext, Cardbox} from "styled-components/pagesStyles";
+import {
+  ButtonLink,
+  Infobox,
+  Infotext,
+  Cardbox,
+} from "styled-components/pagesStyles";
 
 import ResourceCard from "components/ResourceCard";
-
+import { CATEGORY_URL } from "reusable/urls";
 
 export const Websites = () => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
-    fetch("https://final-project-wit-app.herokuapp.com/resources/type/website")
+    fetch(CATEGORY_URL("website"))
       .then((response) => response.json())
       .then((json) => setResources(json));
   }, []);

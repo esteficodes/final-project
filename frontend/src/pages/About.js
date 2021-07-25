@@ -1,8 +1,13 @@
 import React from "react";
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
-
-import {Section, TextBox, Title, SubTitle, Text} from "styled-components/pagesStyles";
+import {
+  Section,
+  TextBox,
+  Title,
+  SubTitle,
+  Text,
+} from "styled-components/pagesStyles";
 
 const AboutWrapper = styled.div`
   display: flex;

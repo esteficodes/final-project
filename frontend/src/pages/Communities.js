@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {Infobox, Infotext, Cardbox, ButtonLink} from "styled-components/pagesStyles";
+import {
+  Infobox,
+  Infotext,
+  Cardbox,
+  ButtonLink,
+} from "styled-components/pagesStyles";
 
 import ResourceCard from "components/ResourceCard";
 import { CATEGORY_URL } from "reusable/urls";
-
 
 export const Communities = () => {
   const [resources, setResources] = useState([]);

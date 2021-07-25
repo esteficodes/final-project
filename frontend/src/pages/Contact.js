@@ -1,7 +1,13 @@
 import React from "react";
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
-import {Section, Text, TextBox, Title, SubTitle} from "styled-components/pagesStyles";
+import {
+  Section,
+  Text,
+  TextBox,
+  Title,
+  SubTitle,
+} from "styled-components/pagesStyles";
 
 import women from "../assets/women.png";
 

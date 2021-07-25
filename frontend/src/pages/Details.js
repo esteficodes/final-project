@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {Card, Text, BoldText, Button, Infobox} from "styled-components/pagesStyles";
-import styled from 'styled-components/macro';
+import {
+  Card,
+  Text,
+  BoldText,
+  Button,
+  Infobox,
+} from "styled-components/pagesStyles";
+import styled from "styled-components/macro";
 
 import Rating from "components/Rating";
 

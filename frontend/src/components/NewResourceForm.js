@@ -3,7 +3,7 @@ import { useDispatch, batch } from "react-redux";
 import resources from "reducers/resources";
 import { API_URL } from "reusable/urls";
 
-import {ButtonLink} from "styled-components/pagesStyles";
+import { ButtonLink } from "styled-components/pagesStyles";
 import styled from "styled-components";
 
 import formBackground from "../assets/formBackground.png";
@@ -217,100 +217,100 @@ const NewResourceForm = () => {
   };
   return (
     <>
-    <ButtonLink to="/Main">GO BACK</ButtonLink>
-    <FormWrapper>
-      <TitleContainer>
-        <Title>Add a new resource</Title>
-      </TitleContainer>
-      <FormContainer>
-        <ResourceForm onSubmit={onFormSubmit}>
-          <ResourceLabel>Resource name</ResourceLabel>
-          <NameInput
-            id="name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          <ResourceLabel>Language</ResourceLabel>
-          <ResourceInput
-            id="language"
-            type="text"
-            minLength="4"
-            maxLength="140"
-            required
-            placeholder="Resource language?"
-            onChange={(e) => setLanguage(e.target.value)}
-            value={language}
-          />
-          <ResourceLabel>Type</ResourceLabel>
-          <ResourceInput
-            id="type"
-            type="text"
-            minLength="4"
-            maxLength="140"
-            required
-            placeholder="Type of resource"
-            onChange={(e) => setType(e.target.value)}
-            value={type}
-          />
-          <ResourceLabel>Free</ResourceLabel>
-          <ResourceInput
-            id="free"
-            type="text"
-            minLength="4"
-            maxLength="5"
-            required
-            placeholder="Free? true/false"
-            onChange={(e) => setFree(e.target.value)}
-            value={free}
-          />
-          <ResourceLabel>Online</ResourceLabel>
-          <ResourceInput
-            id="online"
-            type="text"
-            minLength="4"
-            maxLength="5"
-            required
-            placeholder="Online based? true/false"
-            onChange={(e) => setOnline(e.target.value)}
-            value={online}
-          />
-          <ResourceLabel>Description</ResourceLabel>
-          <ResourceInput
-            id="description"
-            type="text"
-            minLength="5"
-            maxLength="300"
-            required
-            placeholder="Describe it briefly"
-            onChange={(e) => setDescription(e.target.value)}
-            value={description}
-          />
-          <ResourceLabel>URL</ResourceLabel>
-          <ResourceInput
-            id="url"
-            type="text"
-            minLength="5"
-            maxLength="300"
-            required
-            placeholder="Resource URL"
-            onChange={(e) => setUrl(e.target.value)}
-            value={url}
-          />
-          <Button type="submit">Add it!</Button>
-          {isSuccessfullySubmitted && (
-            <Success>
-              Thank you for adding a new resource, star!!
-              <span role="img" aria-label="star">
-                ⭐
-              </span>
-            </Success>
-          )}
-        </ResourceForm>
-        <ResourceFormImage src={women} alt="group of women" />
-      </FormContainer>
-    </FormWrapper>
+      <FormWrapper>
+        <TitleContainer>
+          <Title>Add a new resource</Title>
+        </TitleContainer>
+        <FormContainer>
+          <ResourceForm onSubmit={onFormSubmit}>
+            <ResourceLabel>Resource name</ResourceLabel>
+            <NameInput
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <ResourceLabel>Language</ResourceLabel>
+            <ResourceInput
+              id="language"
+              type="text"
+              minLength="4"
+              maxLength="140"
+              required
+              placeholder="Resource language?"
+              onChange={(e) => setLanguage(e.target.value)}
+              value={language}
+            />
+            <ResourceLabel>Type</ResourceLabel>
+            <ResourceInput
+              id="type"
+              type="text"
+              minLength="4"
+              maxLength="140"
+              required
+              placeholder="Type of resource"
+              onChange={(e) => setType(e.target.value)}
+              value={type}
+            />
+            <ResourceLabel>Free</ResourceLabel>
+            <ResourceInput
+              id="free"
+              type="text"
+              minLength="4"
+              maxLength="5"
+              required
+              placeholder="Free? true/false"
+              onChange={(e) => setFree(e.target.value)}
+              value={free}
+            />
+            <ResourceLabel>Online</ResourceLabel>
+            <ResourceInput
+              id="online"
+              type="text"
+              minLength="4"
+              maxLength="5"
+              required
+              placeholder="Online based? true/false"
+              onChange={(e) => setOnline(e.target.value)}
+              value={online}
+            />
+            <ResourceLabel>Description</ResourceLabel>
+            <ResourceInput
+              id="description"
+              type="text"
+              minLength="5"
+              maxLength="300"
+              required
+              placeholder="Describe it briefly"
+              onChange={(e) => setDescription(e.target.value)}
+              value={description}
+            />
+            <ResourceLabel>URL</ResourceLabel>
+            <ResourceInput
+              id="url"
+              type="text"
+              minLength="5"
+              maxLength="300"
+              required
+              placeholder="Resource URL"
+              onChange={(e) => setUrl(e.target.value)}
+              value={url}
+            />
+            <Button type="submit">Add it!</Button>
+            {isSuccessfullySubmitted && (
+              <Success>
+                Thank you for adding a new resource, star!!
+                <span role="img" aria-label="star">
+                  ⭐
+                </span>
+              </Success>
+            )}
+          </ResourceForm>
+          <ResourceFormImage src={women} alt="group of women" />
+        </FormContainer>
+      </FormWrapper>
+      <ButtonLink to="/Main">GO BACK</ButtonLink>
     </>
   );
 };

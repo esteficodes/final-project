@@ -130,10 +130,10 @@ const Rating = () => {
       <RatingDiv>
         <h2>Rate this Resource</h2>
         <Stars>
-          {stars.map((_, index) => {
+          {stars.map((_, index, id) => {
             return (
               <FaStar
-                key={index}
+                key={id}
                 size={24}
                 onClick={() => handleClick(index + 1)}
                 onMouseOver={() => handleMouseOver(index + 1)}

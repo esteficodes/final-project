@@ -12,7 +12,7 @@ const resources = createSlice({
       store.items = action.payload;
     },
     setErrors: (store, action) => {
-      store.errors = action.payload;
+      //store.errors = action.payload;
     },
     setName: (store, action) => {
       store.name = action.payload;

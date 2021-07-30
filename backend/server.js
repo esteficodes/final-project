@@ -47,9 +47,10 @@ const authenticateUser = async (req, res, next) => {
   try {
     const user = await User.findOne({ accessToken });
     if (user) {
+      req.user = user
       next();
     } else {
-      res.status(401).json({ success: false, message: "not authorized " });
+      res.status(401).json({ success: false, message: "Not authorized " });
     }
   } catch (error) {
     res.status(400).json({ success: false, message: "invalid request", error });
@@ -102,7 +103,7 @@ app.post("/signin", async (req, res) => {
         accessToken: user.accessToken,
       });
     } else {
-      res.status(401).json({ success: false, message: "Not authorized" });
+      res.status(404).json({ success: false, message: "Username and/or password do not match" });
     }
   } catch (error) {
     res.status(400).json({ success: false, message: "Invalid request", error });

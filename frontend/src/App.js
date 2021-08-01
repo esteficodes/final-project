@@ -19,7 +19,6 @@ import Main from "./components/Main";
 import Welcome from "./components/Welcome";
 
 import About from "./pages/About";
-import ForFree from "./pages/ForFree";
 import Contact from "./pages/Contact";
 
 import { Meetups } from "pages/Meetups";
@@ -71,10 +70,6 @@ export const App = () => {
 
             <Route path="/about">
               <About />
-            </Route>
-
-            <Route path="/forFree">
-              <ForFree />
             </Route>
 
             <Route path="/contact">

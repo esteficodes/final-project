@@ -8,11 +8,11 @@ This project is the result of our strong wish to see more diversity in the tech 
 
 We created our own **database** by collecting relevant resources from Scandinavia first, as those are the ones we are more familiar with, but secondly we decided to go international and started adding resources from other parts of the world. The resources are classified and selected according to the premise of being relevant and inclusive. 
 
-Users will be able to create a profile by signing up and, once signed into the application, they will be able to see the latest news about technology and a variety of  to contribute to the growth of the community by adding a new resource that was not yet included. There's also the possibility to star-rate the resources and submit a review with a comment about their experience, thus building an enriching dialogue within the community. On a future stage of the project, other capacities will be added to the user panel such as deleting a resource, modifying it and requesting to be and administrator. 
+Users will be able to create a profile by signing up and, once signed into the application, they will be able to see the latest news about technology and to contribute to the growth of the community by adding a new resource that was not yet included. There's also the possibility to star-rate the resources and submit a review with a comment about their experience, thus building an enriching dialogue within the community. On a future stage of the project, other capacities will be added to the user panel such as deleting a resource, modifying it and requesting to be an administrator. 
 
 ## Backend ⚙️
 
-The backend for this app was also developed by us and consists of a **database** with 78 items (resources) and a **RESTful API built with Node.js and Express**. We collected our data via **MongoDB and mongoose** and used **Postman** to test the endpoints.
+The backend for this app was also developed by us and consists of a **database** with 86 items (resources) and a **RESTful API built with Node.js and Express**. We collected our data via **MongoDB and mongoose** and used **Postman** to test the endpoints.
 
 ## Endpoints Documentation 📄
 

@@ -226,10 +226,10 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <Button type="submit">SIGN UP</Button>
         {errors && (
-          <p>Oops, looks like something went wrong! Please, try again</p>
+          <p>Oops, that user already exists! Please, try a new one</p>
         )}
+        <Button type="submit">SIGN UP</Button>
         <Subtitle>
           Already a user?<Link to="/signin">LOGIN</Link>
         </Subtitle>

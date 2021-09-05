@@ -164,14 +164,6 @@ const NewResourceForm = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    setName("");
-    setLanguage("");
-    setType("");
-    setFree("");
-    setOnline("");
-    setDescription("");
-    setUrl("");
-    setIsSuccessfullySubmitted(true);
 
     const options = {
       method: "POST",
@@ -209,6 +201,14 @@ const NewResourceForm = () => {
               })
             );
           });
+          setName("");
+          setLanguage("");
+          setType("");
+          setFree("");
+          setOnline("");
+          setDescription("");
+          setUrl("");
+          setIsSuccessfullySubmitted(true);
         } else {
           dispatch(resources.actions.setErrors(data));
         }

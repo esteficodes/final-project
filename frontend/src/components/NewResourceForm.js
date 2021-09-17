@@ -164,6 +164,7 @@ const NewResourceForm = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    setIsSuccessfullySubmitted(true)
 
     const options = {
       method: "POST",
@@ -298,14 +299,15 @@ const NewResourceForm = () => {
               value={url}
             />
             <Button type="submit">Add it!</Button>
-            {isSuccessfullySubmitted && (
+             {isSuccessfullySubmitted && 
               <Success>
                 Thank you for adding a new resource, star!!
                 <span role="img" aria-label="star">
                   ⭐
                 </span>
-              </Success>
-            )}
+              </Success> 
+             } 
+
           </ResourceForm>
           <ResourceFormImage src={women} alt="group of women" />
         </FormContainer>
